@@ -1,0 +1,2037 @@
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007023850)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "happiness" integer, "nausea" integer, "dollars" integer, "tickets" integer, "theme_park_owner" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007023850_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007023850"]]
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-07 15:19:29.305076"], ["updated_at", "2019-10-07 15:19:29.305076"]]
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-07 11:21:45 -0400
+  [1m[35m (10.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 5174ms (Views: 5160.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-07 11:22:07 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 230ms (Views: 182.7ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-07 11:54:01 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2019-10-07 11:54:02 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "theme_park_owner" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-07 15:54:26.710355"], ["updated_at", "2019-10-07 15:54:26.710355"]]
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-07 11:54:40 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 666ms (Views: 648.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-07 11:55:49 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 203ms (Views: 189.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-07 11:56:49 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o1ap4i2pG8WXWl8tiORBO6TP/BuKQRe3Q2w2l226tsDLqO8oWDOi7xCsf/r6Xn9CzixxHRJyccKBKhZViBWHMA==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "theme_park_owner"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (30.5ms)[0m  [1m[32mINSERT INTO "users" ("height", "nausea", "happiness", "dollars", "tickets", "theme_park_owner", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["theme_park_owner", "f"], ["password_digest", "$2a$12$418gnjRl13T.zcdVHhy5yuSGG27E0r2bNnQ0umNqt1zAqNPiEUj3a"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 537ms (ActiveRecord: 33.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-10-07 11:56:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 271ms (Views: 154.7ms | ActiveRecord: 0.7ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-07 11:58:49 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 789ms (Views: 776.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user/new" for ::1 at 2019-10-07 11:59:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/usersnew" for ::1 at 2019-10-07 11:59:18 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/usersnew"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2019-10-07 11:59:21 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 323ms (Views: 307.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-07 11:59:40 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PrfUA0WTM+qwly5CaL14i2gT6++ls0WTX9kgsyg0bzVWSZLJMAmKwDdhDpUaB0byAvBm6T2AI+adnwBxzZtexQ==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "theme_park_owner"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "theme_park_owner", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["theme_park_owner", "f"], ["password_digest", "$2a$12$RMcrU3mypXHRdeYfk/DYQuIM6lgoaPB3V81QQsKmZy.Cum.lugEDu"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 418ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/2" for ::1 at 2019-10-07 11:59:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 272ms (Views: 140.7ms | ActiveRecord: 0.3ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-08 11:12:35 -0400
+Started GET "/" for ::1 at 2019-10-08 11:12:35 -0400
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+Processing by StaticController#home as HTML
+Started GET "/signin" for ::1 at 2019-10-08 11:12:40 -0400
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (2.5ms)
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3140ms (Views: 2856.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 3284ms (Views: 3018.7ms | ActiveRecord: 0.0ms)
+
+
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (92.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."name" ASC[0m
+  ↳ app/views/sessions/new.html.erb:2
+  Rendered sessions/new.html.erb within layouts/application (317.4ms)
+Completed 200 OK in 536ms (Views: 326.1ms | ActiveRecord: 93.2ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/signin" for ::1 at 2019-10-08 11:15:28 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (311.9ms)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_name' for #<User:0x007f8b31a40420>):
+    1: <%= form_for :user, url: '/signin' do |f| %>
+    2:  Your name: <%= f.collection_select :user_name, User.order(:name),:id,:name, include_blank: true %>
+    3:  Your password: <%= f.password_field :password %>
+    4: 
+    5:  <% f.submit "Sign In" %>
+  
+app/views/sessions/new.html.erb:2:in `block in _app_views_sessions_new_html_erb__2795691182280698706_70117913051340'
+app/views/sessions/new.html.erb:1:in `_app_views_sessions_new_html_erb__2795691182280698706_70117913051340'
+Started GET "/signin" for ::1 at 2019-10-08 11:15:49 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."name" ASC[0m
+  ↳ app/views/sessions/new.html.erb:2
+  Rendered sessions/new.html.erb within layouts/application (226.5ms)
+Completed 200 OK in 1932ms (Views: 1901.3ms | ActiveRecord: 25.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-08 14:42:19 -0400
+Started GET "/" for ::1 at 2019-10-08 14:42:20 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (340.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (4.1ms)
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 2075ms (Views: 2070.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2203ms (Views: 2175.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user/show" for ::1 at 2019-10-08 14:42:33 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user/show"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/user/new" for ::1 at 2019-10-08 14:42:38 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user/new"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/usersnew" for ::1 at 2019-10-08 14:42:42 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/usersnew"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2019-10-08 14:42:45 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (85.7ms)
+Completed 200 OK in 293ms (Views: 257.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-08 14:43:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qM9gNibTHLzn0a37D6Y+xuABOM9VFx3KQ4Fyv17D+2DAMSb8U0mllmAnjSx9HAC/iuK1yc0ke7+Bx1J9u2zKkA==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :admin
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (16.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["password_digest", "$2a$12$g.b37WFDBiGqmeDPIx0evu3eDWseBE2PGfYgKgeLwgrF0Uyp0IwJ2"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 452ms (ActiveRecord: 19.9ms)
+
+
+Started GET "/users/3" for ::1 at 2019-10-08 14:43:04 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (17.1ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin' for #<User:0x007f8433a9cb08>):
+    1: <%= @user.admin ? "ADMIN": "" %>
+    2: 
+    3: Name: <%= @user.name %>
+    4: 
+  
+app/views/users/show.html.erb:1:in `_app_views_users_show_html_erb___2976455248074691065_70102889820400'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/3" for ::1 at 2019-10-08 14:44:19 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/new" for ::1 at 2019-10-08 14:44:25 -0400
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-08 18:44:44.931343"], ["updated_at", "2019-10-08 18:44:44.931343"]]
+  ↳ bin/rails:4
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-08 14:44:51 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (65.8ms)
+Completed 200 OK in 1076ms (Views: 1043.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-08 14:45:11 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iEe9DEonHson4XhkG1C6Ba1xambEh7VCdt88aENCTIbgufvGP72n4KAXWLNp6oR8x5LnYFy00ze0mRyqpu19dg==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :admin
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (19.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["password_digest", "$2a$12$E3qP4UHMaJNe6OrRyAMhL.XIiQSqW.fDtVFO4CCwf2szPR2lxQWza"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 485ms (ActiveRecord: 22.4ms)
+
+
+Started GET "/users/1" for ::1 at 2019-10-08 14:45:11 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 209ms (Views: 83.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-08 14:45:26 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 260ms (Views: 159.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for ::1 at 2019-10-08 14:45:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 91ms (Views: 84.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for ::1 at 2019-10-08 14:46:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 233ms (Views: 111.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-08 14:46:57 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wdqsfk9+sXLio8guoG2s3e3NBeqhZwaxC5HHTQQrGSmpJOq0OuQIWGVV6PnS15Kkhy6I7DlUYMTJ1+eP4YQo2Q==", "user"=>{"name"=>"LOL", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "LOL"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["admin", "t"], ["password_digest", "$2a$12$msVQHH4MVjdRyE6OyC2XI.JQaN31C8y/HFT.qM2x.p1UEfYQlqbJi"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 372ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2" for ::1 at 2019-10-08 14:46:57 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 171ms (Views: 151.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2019-10-08 14:47:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 159ms (Views: 150.3ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (47.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (34.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-09 02:31:25.352581"], ["updated_at", "2019-10-09 02:31:25.352581"]]
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-09 02:31:48.606757"], ["updated_at", "2019-10-09 02:31:48.606757"]]
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateRides (20191009163513)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "rides" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "attraction_id" integer)[0m
+  ↳ db/migrate/20191009163513_create_rides.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163513"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateAttraction (20191009163648)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "attractions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "min_height" integer, "nausea_rating" integer, "happiness_rating" integer, "ticket_number" integer)[0m
+  ↳ db/migrate/20191009163648_create_attraction.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163648"]]
+  ↳ bin/rails:4
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-09 16:37:39.112427"], ["updated_at", "2019-10-09 16:37:39.112427"]]
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean, "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateRides (20191009163513)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "rides" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "attraction_id" integer)[0m
+  ↳ db/migrate/20191009163513_create_rides.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163513"]]
+  ↳ bin/rails:4
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateAttraction (20191009163648)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "attractions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "min_height" integer, "nausea_rating" integer, "happiness_rating" integer, "tickets" integer)[0m
+  ↳ db/migrate/20191009163648_create_attraction.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163648"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-10 14:50:25.770264"], ["updated_at", "2019-10-10 14:50:25.770264"]]
+  ↳ bin/rails:4
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-10 15:01:08 -0400
+  [1m[35m (21.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 1400ms (Views: 1391.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2019-10-10 15:01:18 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (30.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."name" ASC[0m
+  ↳ app/views/sessions/new.html.erb:2
+  Rendered sessions/new.html.erb within layouts/application (51.8ms)
+Completed 200 OK in 332ms (Views: 151.8ms | ActiveRecord: 33.5ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-10 15:14:08 -0400
+  [1m[35m (41.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 1416ms (Views: 1406.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-10 15:14:14 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (67.8ms)
+Completed 200 OK in 162ms (Views: 148.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-10 15:14:30 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0hRGjnOfZVFwRV0Dzfg2N3/w3B1ughR65c5p2hWl3luowKG8uPejNT7RcU7VAuWmXRAuEvKePMSGja6wXHQm1g==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (21.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["admin", "f"], ["password_digest", "$2a$12$PtT9o78f.cKTDhjr8/FeWeyCHS5ryihqgaeCTOWMGHSdQ8C9KI.aO"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 465ms (ActiveRecord: 25.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-10-10 15:14:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 305ms (Views: 214.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/attractions" for ::1 at 2019-10-10 15:14:35 -0400
+Processing by AttractionsController#index as HTML
+  Rendering attractions/index.html.erb within layouts/application
+  [1m[36mAttraction Load (12.3ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions"[0m
+  ↳ app/views/attractions/index.html.erb:3
+  Rendered attractions/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 185ms (Views: 79.5ms | ActiveRecord: 13.5ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.3/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-13 22:33:29 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (7.7ms)
+Started GET "/" for ::1 at 2019-10-13 22:33:32 -0400
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 8411ms (Views: 8401.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 5487ms (Views: 5486.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-13 22:34:00 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 260ms (Views: 257.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-13 22:34:19 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wCZmSBxX+OLaDu+yxXSvBW9hnuALctXJxf3qtjNC9yu68oF61z8+hpSaw//djnyUTYFs75du/Xemvi3cepMPpg==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+  [1m[36mUser Create (146.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["admin", "f"], ["password_digest", "$2a$12$FOUg4EnIDIDIecTMmH.HYOcI7jHOsUC45ygFuULJ2pRvSxAFXK1Ym"]]
+  ↳ app/controllers/users_controller.rb:6
+  [1m[35m (41.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 513ms (ActiveRecord: 189.8ms)
+
+
+Started GET "/users/2" for ::1 at 2019-10-13 22:34:20 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 58ms (Views: 49.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/attractions" for ::1 at 2019-10-13 22:34:22 -0400
+Processing by AttractionsController#index as HTML
+  Rendering attractions/index.html.erb within layouts/application
+  [1m[36mAttraction Load (28.8ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions"[0m
+  ↳ app/views/attractions/index.html.erb:3
+  Rendered attractions/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 90ms (Views: 47.8ms | ActiveRecord: 30.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from load at /Users/benitolsantos/.rvm/gems/ruby-2.6.3/bin/rake:23)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Max Charles"], ["height", 32], ["nausea", 0], ["happiness", 3], ["tickets", 6], ["password_digest", "$2a$12$0aJPJwbGnI3cbht84lhjLev88KEMmN1i5zwm9DWUVBxFOgwW6cLvu"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Skai Jackson"], ["height", 60], ["nausea", 1], ["happiness", 3], ["tickets", 10], ["password_digest", "$2a$12$FHwB0nJsUhTX1PcXDv8BFemruRkdpXpKoZZLjL/Gl993vsFhDO51i"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kaleo Elam"], ["height", 59], ["nausea", 1], ["happiness", 2], ["tickets", 15], ["password_digest", "$2a$12$0nFrjQf07HdR5CQA4.RRoeVL.Y0I3CjmVR8.mNAye4oYP/RNAKOgS"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Megan Charpentier"], ["height", 60], ["nausea", 3], ["happiness", 1], ["tickets", 12], ["password_digest", "$2a$12$wvX7tXBUFy.JU.NrWbV3duA1j3SXb3vZ0gzwsIuYMXlBS1cY8Nbii"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Hayden Byerly"], ["height", 58], ["nausea", 1], ["happiness", 1], ["tickets", 16], ["password_digest", "$2a$12$zTw6Zu1vH7rvqLZJa7O1PeS.ziKl3bepoRYWmByJSmBtqmpyL8kj6"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Tenzing Norgay Trainor"], ["height", 55], ["nausea", 0], ["happiness", 1], ["tickets", 10], ["password_digest", "$2a$12$Vx5BCK26FyC0aQH/nqHSCODowdrtubeUe17Wz6WtnPdZLaLmGMBLu"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Davis Cleveland"], ["height", 36], ["nausea", 1], ["happiness", 3], ["tickets", 5], ["password_digest", "$2a$12$0E2p8J377VdeWJ6Nt3YiP.kQ46/DtJEe0hJc7SpC3U4zAgEWFmAyC"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Cole Sand"], ["height", 34], ["nausea", 2], ["happiness", 2], ["tickets", 7], ["password_digest", "$2a$12$Lw.uTCV0QgYPCWwjh8jH..8ZXf/7hkkpgNl2JNVuNRWxPUGAQspHS"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "tickets", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Quvenzhané Wallis"], ["height", 30], ["nausea", 2], ["happiness", 2], ["tickets", 13], ["password_digest", "$2a$12$fcKlj3rpTngv.hkZJrZwROwxAIKWa73P6FLDS/eCLafee8MUPBDna"]]
+  ↳ db/seeds.rb:55
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:55
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:61
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "admin", "password_digest") VALUES (?, ?, ?)[0m  [["name", "Mary Elitch Long"], ["admin", "t"], ["password_digest", "$2a$12$FkK1Vv2WjN1aXIjFStIMyeiNGC1olnlTtBHoYqOJNafB8DrEXOn3S"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:61
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:61
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "admin", "password_digest") VALUES (?, ?, ?)[0m  [["name", "John Elitch"], ["admin", "t"], ["password_digest", "$2a$12$nD5eaqkDUUMJ7.Gx7HxWcOgw/M3GmajPlpB/86wFmueJ.Y7dfeTp6"]]
+  ↳ db/seeds.rb:61
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:61
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (1.3ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Scrambler Ride"], ["min_height", 36], ["nausea_rating", 2], ["happiness_rating", 2], ["tickets", 2]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.5ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 11], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 1], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 11], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 7], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 1], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.4ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 5], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.3ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 8], ["attraction_id", 1]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (1.2ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Miniature Railroad"], ["min_height", 32], ["nausea_rating", 0], ["happiness_rating", 1], ["tickets", 2]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.2ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 2], ["attraction_id", 2]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.7ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Merry-Go-Round"], ["min_height", 30], ["nausea_rating", 1], ["happiness_rating", 1], ["tickets", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.2ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 7], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.2ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 10], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 7], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 3]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.4ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Roller Coaster"], ["min_height", 54], ["nausea_rating", 1], ["happiness_rating", 3], ["tickets", 4]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.2ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 4]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 4]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 2], ["attraction_id", 4]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 7], ["attraction_id", 4]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.5ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Swinging Ship"], ["min_height", 36], ["nausea_rating", 2], ["happiness_rating", 2], ["tickets", 2]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 8], ["attraction_id", 5]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 11], ["attraction_id", 5]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 4], ["attraction_id", 5]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.4ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Go Karts"], ["min_height", 36], ["nausea_rating", 1], ["happiness_rating", 2], ["tickets", 3]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 1], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 2], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 7], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 8], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 4], ["attraction_id", 6]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.6ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Haunted Mansion"], ["min_height", 30], ["nausea_rating", 1], ["happiness_rating", 1], ["tickets", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 2], ["attraction_id", 7]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 10], ["attraction_id", 7]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.4ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ferris Wheel"], ["min_height", 36], ["nausea_rating", 1], ["happiness_rating", 1], ["tickets", 2]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 5], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 1], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 8], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 5], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 8]]
+  ↳ db/seeds.rb:77
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:73
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:76
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:77
+  [1m[36mAttraction Create (0.4ms)[0m  [1m[32mINSERT INTO "attractions" ("name", "min_height", "nausea_rating", "happiness_rating", "tickets") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Teacups Ride"], ["min_height", 28], ["nausea_rating", 3], ["happiness_rating", 1], ["tickets", 1]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.3ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 10], ["attraction_id", 9]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 6], ["attraction_id", 9]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 9], ["attraction_id", 9]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 10], ["attraction_id", 9]]
+  ↳ db/seeds.rb:77
+  [1m[36mRide Create (0.1ms)[0m  [1m[32mINSERT INTO "rides" ("user_id", "attraction_id") VALUES (?, ?)[0m  [["user_id", 4], ["attraction_id", 9]]
+  ↳ db/seeds.rb:77
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:77
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.3/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-14 12:44:38 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 804ms (Views: 798.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-14 12:44:45 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 86ms (Views: 81.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-14 12:45:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vgb4k2x3PfEAyv3j45kt099eBXBD0tznL+/EZJcKCLbE0h+hpx/7lU5e0a77Y/5C/b73f9/O9FlMrAMO3tvwOw==", "user"=>{"name"=>"Benito", "height"=>"15", "happiness"=>"5", "nausea"=>"5", "dollars"=>"50", "tickets"=>"50", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+  [1m[36mUser Create (18.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "height", "nausea", "happiness", "dollars", "tickets", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Benito"], ["height", 15], ["nausea", 5], ["happiness", 5], ["dollars", 50], ["tickets", 50], ["admin", "f"], ["password_digest", "$2a$12$QipuVk7uNEaSiC1rZ6QtCOdBA1qY4MGZSRkIFShNmRVWWm24BlGbG"]]
+  ↳ app/controllers/users_controller.rb:7
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/users/14
+Completed 302 Found in 405ms (ActiveRecord: 22.3ms)
+
+
+Started GET "/users/14" for ::1 at 2019-10-14 12:45:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 109ms (Views: 85.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/attractions" for ::1 at 2019-10-14 12:45:07 -0400
+Processing by AttractionsController#index as HTML
+  Rendering attractions/index.html.erb within layouts/application
+  [1m[36mAttraction Load (1.1ms)[0m  [1m[34mSELECT "attractions".* FROM "attractions"[0m
+  ↳ app/views/attractions/index.html.erb:3
+  Rendered attractions/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 86ms (Views: 62.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/attractions/1" for ::1 at 2019-10-14 12:45:11 -0400
+Processing by AttractionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAttraction Load (0.5ms)[0m  [1m[34mSELECT  "attractions".* FROM "attractions" WHERE "attractions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/attractions_controller.rb:16
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/attractions_controller.rb:17
+  Rendering attractions/show.html.erb within layouts/application
+  Rendered attractions/show.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 137ms (Views: 69.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/attractions/1" for ::1 at 2019-10-14 12:45:13 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/attractions/1"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "height" integer, "nausea" integer, "happiness" integer, "dollars" integer, "tickets" integer, "admin" boolean DEFAULT 'f', "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateRides (20191009163513)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "rides" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "attraction_id" integer)[0m
+  ↳ db/migrate/20191009163513_create_rides.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163513"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateAttraction (20191009163648)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "attractions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "min_height" integer, "nausea_rating" integer, "happiness_rating" integer, "tickets" integer)[0m
+  ↳ db/migrate/20191009163648_create_attraction.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163648"]]
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-10-15 02:07:34.162468"], ["updated_at", "2019-10-15 02:07:34.162468"]]
+  ↳ bin/rails:4
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
