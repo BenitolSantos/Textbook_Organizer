@@ -1,16 +1,9 @@
-class User < ActiveRecord::Base
-    has_many :rides
-    has_many :attractions, through: :rides
-    has_secure_password
-
-    def mood 
-        if happiness && nausea
-            if happiness > nausea
-                "happy"
-            elsif happiness < nausea
-                "sad"
-            else
-            end
-        end
-    end
-end
+class User < ApplicationRecord
+    has_many :book
+    has_many :subjects, through: :textbooks
+    has_many :current_pages, through: :textbooks
+ 
+    validates :name, presence: true
+ end
+ 
+ 

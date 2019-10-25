@@ -1,4 +1,5 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
+  #if theres problem use rvm gemset empty gem install bundler bundle install 
   def up
     create_table :users do |t|
       t.string :first_name

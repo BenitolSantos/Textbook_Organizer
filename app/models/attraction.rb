@@ -1,5 +1,7 @@
-class Attraction < ApplicationRecord
-   has_many :rides
-   has_many :users, through: :rides
+class Current_Page < ApplicationRecord
+   has_many :textbooks
+   has_many :users, through: :textbooks
+
+   validates :name, presence: true
 end
 
