@@ -1,4 +1,4 @@
-class AttractionsController < ApplicationController 
+class CurrentPagesController < ApplicationController  
     #use gem pristine --all 
     #if it's ignoring gems
     def index 
@@ -46,5 +46,4 @@ class AttractionsController < ApplicationController
             params.require(:attraction).permit(:name,:min_height,:nausea_rating,:happiness_rating,:tickets,:admin)
         end
 
-   
 end
