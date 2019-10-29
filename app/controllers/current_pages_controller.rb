@@ -37,7 +37,7 @@ class CurrentPagesController < ApplicationController
     private
         
         def attraction_params
-            params.require(:attraction).permit(:name,:min_height,:nausea_rating,:happiness_rating,:tickets,:admin)
+            params.require(:attraction).permit(:first_name,:last_name,:user_name,:age,:email,:admin,:password)
         end
 
 end
