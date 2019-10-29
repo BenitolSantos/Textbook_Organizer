@@ -13,23 +13,23 @@
 ActiveRecord::Schema.define(version: 2019_10_09_163648) do
 
   create_table "current_pages", force: :cascade do |t|
-    t.string "name"
-    t.integer "min_height"
-    t.integer "nausea_rating"
-    t.integer "happiness_rating"
-    t.integer "tickets"
+    t.integer "page_num"
+    t.integer "chapter_num"
+    t.integer "user_id"
+    t.integer "textbook_id"
   end
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "textbook_id"
   end
 
   create_table "textbooks", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.integer "pages"
+    t.integer "cost"
   end
 
   create_table "users", force: :cascade do |t|
