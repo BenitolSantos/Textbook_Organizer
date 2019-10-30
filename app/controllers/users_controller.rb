@@ -31,6 +31,6 @@ class UsersController < ApplicationController
 
     def user_params
         #remember to put everything in permit
-        params.require(:user).permit(:name,:mood,:height,:happiness,:nausea,:dollars,:tickets,:admin, :password)
+        params.require(:user).permit(:first_name,:last_name,:user_name, :age,:email,:admin, :password)
     end
 end

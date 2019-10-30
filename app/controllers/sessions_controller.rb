@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-      @user = User.find_by(:name => params[:user][:name])
+        byebug
+      @user = User.find_by(:user_name => params[:user][:user_name])
       return head(:forbidden) unless @user.authenticate(params[:password])
       if @user
       session[:user_id] = @user.id
@@ -21,6 +22,6 @@ class SessionsController < ApplicationController
     private 
 
     def user_params
-        params.require(:user).permit(:name, :password)
+        params.require(:user).permit(:user_name, :password)
     end
 end

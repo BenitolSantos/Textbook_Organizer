@@ -1,10 +1,10 @@
 <%= form_for :user, url: '/users/new' do |f| %>
-    First Name: <%= f.text_field :name %>
+    First Name: <%= f.text_field :first_name %>
     Last Name: <%= f.text_field :last_name %>
     Username: <%= f.text_field :user_name %>
     Age: <%= f.text_field :age %>
     Email: <%= f.text_field :email %>
     Admin: <%= f.check_box :admin %>
-    Password <%= f.password_field :password %>
+    Password: <%= f.password_field :password %>
     <%= f.submit "Create User" %>
 <%end%>

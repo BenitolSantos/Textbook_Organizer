@@ -2448,3 +2448,268 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 1505ms (Views: 1436.9ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-29 21:27:46 -0400
+  [1m[35m (25.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (96.5ms)
+Completed 200 OK in 1290ms (Views: 1109.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:28:08 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"64WfczOpclMY7r0A1OmYJPPF13k0UBjqeDEmFMdnLWTxR1abGBuSYB6TNHNEcl4X1BqyS6aWMlfxzBelZhx4Fg==", "user"=>{"name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"benito", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameters: :last_name, :user_name, :age, :email
+Completed 500 Internal Server Error in 315ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'name' for User.):
+  
+app/controllers/users_controller.rb:7:in `create'
+Started GET "/users/new" for ::1 at 2019-10-29 21:28:52 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 95ms (Views: 93.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:29:07 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ha+sBHuCHxZs6gwAC6GR1MbSKDAgGURYlrP58EZUlAifbWXsUDD/JWqXhXObOlfn4Q1NArLfbuUfTshB5y/Beg==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameters: :first_name, :last_name, :user_name, :age, :email
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for User.):
+  
+app/controllers/users_controller.rb:7:in `create'
+Started GET "/users/new" for ::1 at 2019-10-29 21:30:54 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:31:06 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tRZnNjZ5VUeM011R0yi/NqyzLvpFFglsB3KJ4uU6oiav1K7eHcu1dIqu1CJDs3kFi2xLyNfQI9GOj7hTREH3VA==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :user_name
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for User.):
+  
+app/controllers/users_controller.rb:7:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-10-29 21:38:03 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 831ms (Views: 824.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-10-29 21:38:23 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (46.2ms)
+Completed 200 OK in 108ms (Views: 90.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:38:32 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"31b5nMlfmFzy1irjcS0Yo9mSVIIvIerP1fQPwEx6N5qlgh6uAjdeOLxCBq5p18sy+3KmjbM9wnG2t8iqBavPFw==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Unpermitted parameter: :user_name
+Completed 500 Internal Server Error in 53642ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:8:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/users/new" for ::1 at 2019-10-29 21:40:06 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ETfEQSDhLcGBG3rjHOpJy9/Q7hNMwa86Uox2ob2aTT4L9Q2pC1PN8odm85CMcY/4+A+LId4HhYfbcUcQHOEYTA==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 60024ms (ActiveRecord: 0.0ms)
+
+
+  
+Started GET "/users/new" for ::1 at 2019-10-29 21:41:06 -0400
+Started GET "/users/new" for ::1 at 2019-10-29 21:41:06 -0400
+Started GET "/users/new" for ::1 at 2019-10-29 21:41:06 -0400
+Started GET "/users/new" for ::1 at 2019-10-29 21:41:06 -0400
+SystemExit (exit):
+Processing by UsersController#new as HTML
+Processing by UsersController#new as HTML
+Processing by UsersController#new as HTML
+  
+Processing by UsersController#new as HTML
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:8:in `create'
+  Rendering users/new.html.erb within layouts/application
+  Rendering users/new.html.erb within layouts/application
+  Rendering users/new.html.erb within layouts/application
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (367.9ms)
+  Rendered users/new.html.erb within layouts/application (354.8ms)
+  Rendered users/new.html.erb within layouts/application (343.7ms)
+  Rendered users/new.html.erb within layouts/application (355.2ms)
+Completed 200 OK in 25080ms (Views: 24811.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 25268ms (Views: 25159.6ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 25227ms (Views: 25125.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 25354ms (Views: 25217.5ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-29 21:41:43 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 454ms (Views: 447.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:41:55 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ctEBD8fzU4C/jE2YLEaShv2DD4LHorgSuqdGRvdlLsJoE8jn7EGzs7nxxOu83VS12lxqsFVkkq8zWnf3Vh57sA==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 10099ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:8:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/users/new" for ::1 at 2019-10-29 21:45:14 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ctEBD8fzU4C/jE2YLEaShv2DD4LHorgSuqdGRvdlLsJoE8jn7EGzs7nxxOu83VS12lxqsFVkkq8zWnf3Vh57sA==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 566893ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:8:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/users/new" for ::1 at 2019-10-29 21:55:43 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (47.0ms)
+Completed 200 OK in 644ms (Views: 619.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/new" for ::1 at 2019-10-29 21:55:56 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DL9U27OpzOZr1y6cfd9zimFNJV3TdGUzWdqj0ZZOfCYWfZ0zmBss1W2qp+/tRLW5RpJAb0GyT47QJ5JgNzUpVA==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"25", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 101ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'password' for User.):
+  
+app/controllers/users_controller.rb:7:in `create'
