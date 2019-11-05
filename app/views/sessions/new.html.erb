@@ -1,5 +1,5 @@
 <%= form_for :user, url: '/signin' do |f| %>
- Your name: <%= f.collection_select :name, User.order(:user_name),:user_name,:user_name, include_blank: false %>
- Your password <input type="password" name="password" id="password">
+ Username:  <%= f.text_field :user_name %>
+ Password  <%= f.password_field :password %>
  <%= f.submit "Sign In" %>
 <%end%>

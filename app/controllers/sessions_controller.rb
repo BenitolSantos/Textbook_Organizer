@@ -5,12 +5,14 @@ class SessionsController < ApplicationController
     end
 
     def create
-        byebug
-      @user = User.find_by(:user_name => params[:user][:user_name])
-      return head(:forbidden) unless @user.authenticate(params[:password])
+      @user = User.find_by(:user_name => user_params[:user_name])
+      return head(:forbidden) unless @user.authenticate(user_params[:password])
       if @user
       session[:user_id] = @user.id
       redirect_to user_path(@user)
+      else 
+        flash[:message] = "User or Password incorrect"
+        redirect_to new_user_path(@user)
       end
     end
 

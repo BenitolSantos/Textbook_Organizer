@@ -1,4 +1,5 @@
-<%= form_for :user, url: '/users/new' do |f| %>
+<h1> <%= flash[:message] %> </h1>
+<%= form_for @user do |f| %>
     First Name: <%= f.text_field :first_name %>
     Last Name: <%= f.text_field :last_name %>
     Username: <%= f.text_field :user_name %>
