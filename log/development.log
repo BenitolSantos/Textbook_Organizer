@@ -7122,3 +7122,467 @@ true by adding the following to your application.rb file:
 
   Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
  (called from require at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-11-06 09:14:09 -0500
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from require at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateUsers (20191007153732)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "user_name" varchar, "age" integer, "email" integer, "admin" boolean DEFAULT 'f', "password_digest" varchar)[0m
+  ↳ db/migrate/20191007153732_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191007153732"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateSubjects (20191009163513)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "subjects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "textbook_id" integer)[0m
+  ↳ db/migrate/20191009163513_create_subjects.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163513"]]
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateTextbooks (20191009163514)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "textbooks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" varchar, "pages" integer, "cost" integer)[0m
+  ↳ db/migrate/20191009163514_create_textbooks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163514"]]
+  ↳ bin/rails:4
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCurrentPages (20191009163648)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "current_pages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "page_num" integer, "chapter_num" integer, "user_id" integer, "textbook_id" integer)[0m
+  ↳ db/migrate/20191009163648_create_current_pages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191009163648"]]
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-06 14:14:22.396041"], ["updated_at", "2019-11-06 14:14:22.396041"]]
+  ↳ bin/rails:4
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-11-06 09:14:31 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 938ms (Views: 931.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:14:39 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 128ms (Views: 66.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:14:59 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XznmksPrcIi4pSbQiYY8K8MGy9hrRgnTczxFZx5ssoC/y6+eiMPVIrPN+mx6ElTkXEX3876iAzelZrBCi2oUAQ==", "user"=>{"first_name"=>"Lorenzo", "last_name"=>"Santos", "user_name"=>"adminman", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 5442ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:10:in `create'
+Started POST "/users" for ::1 at 2019-11-06 09:15:34 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kxVCmIzPUbisC+jQRzqKaYgr8jWmlmUMMnMLBRN5TriJ14twp32xi6p2YaPXoUxar/SXBzRQT7G7jjq0sgIbyg==", "user"=>{"first_name"=>"Lorenzo", "last_name"=>"Santos", "user_name"=>"adminman", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 2852ms (ActiveRecord: 0.0ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/users_controller.rb:10:in `create'
+Started POST "/users" for ::1 at 2019-11-06 09:15:57 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kxVCmIzPUbisC+jQRzqKaYgr8jWmlmUMMnMLBRN5TriJ14twp32xi6p2YaPXoUxar/SXBzRQT7G7jjq0sgIbyg==", "user"=>{"first_name"=>"Lorenzo", "last_name"=>"Santos", "user_name"=>"adminman", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 600ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:15:59 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 964ms (Views: 939.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:16:34 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JvAhlNpoRhCEh6+TJKsjindFXZAS9nkfn1ASK/4NNpE8Muh88dqmI4L6JuC0MOW5UJo4ooAwU6IWrSOaX3Zj4w==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"adminman", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x00007fbb8c678988>
+Did you mean?  try):
+  
+app/controllers/users_controller.rb:9:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/users" for ::1 at 2019-11-06 09:22:46 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JvAhlNpoRhCEh6+TJKsjindFXZAS9nkfn1ASK/4NNpE8Muh88dqmI4L6JuC0MOW5UJo4ooAwU6IWrSOaX3Zj4w==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"adminman", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Started GET "/users/new" for ::1 at 2019-11-06 09:22:48 -0500
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 33359ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::EIO (Input/output error @ io_write - <STDOUT>):
+  
+app/controllers/users_controller.rb:10:in `create'
+Started GET "/users/nre" for ::1 at 2019-11-06 09:23:19 -0500
+Started GET "/users/new" for ::1 at 2019-11-06 09:23:19 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"nre"}
+  Rendering users/new.html.erb within layouts/application
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+Completed 404 Not Found in 106ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=nre):
+  
+app/controllers/users_controller.rb:23:in `show'
+  Rendered users/new.html.erb within layouts/application (323.1ms)
+  Rendered users/new.html.erb within layouts/application (316.1ms)
+Completed 200 OK in 32147ms (Views: 1170.1ms | ActiveRecord: 0.8ms)
+
+
+Completed 200 OK in 1159ms (Views: 1156.9ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/users" for ::1 at 2019-11-06 09:26:44 -0500
+  [1m[35m (12.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0ztz0bEfWDnWW3RZMgJW/KC/0AuIly3qcAiuiGlkwhBjiQnbXadU+Ek5KL0U89o1V2acrzkdgogPRMLgN7Geg==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"lorenzo4", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 14460ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:26:59 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 742ms (Views: 739.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:27:21 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+BQFAI4/E49b5JkI/TQJ2Orfm6Y8pvOi74PxYgoKguvi1szopY3zvF2ZEHttr8/rzQD+lK5g2R9mfsDTq3HXmQ==", "user"=>{"first_name"=>"Marsha", "last_name"=>"Mellow", "user_name"=>"marshamellow", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 2850ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:27:24 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 103ms (Views: 100.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:27:56 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G+gMqM9iyakeu0AvhSb8GyrcsiYYzGxb1ge4TTGbjm0BKsVA5NApmhjGyVwVvTooDQPXFIoKRuZf+on8kODbHw==", "user"=>{"first_name"=>"b", "last_name"=>"s", "user_name"=>"bs", "age"=>"22", "email"=>"bs@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 263315ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:32:19 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 1014ms (Views: 925.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:32:52 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/MFHbL0tsnuZ8BfiBRxYLoGVlIVunAj+v+CusY0+E4JMcz1mUZW+ugaSSwYj7dTndkzYId8Wp5zArMLZ0+tPA==", "user"=>{"first_name"=>"B", "last_name"=>"S", "user_name"=>"bs", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."first_name" = ? AND "users"."last_name" = ? AND "users"."user_name" = ? AND "users"."age" = ? AND "users"."email" = ? AND "users"."admin" = ? AND "users"."password" = ? LIMIT ?[0m  [["first_name", "B"], ["last_name", "S"], ["user_name", "bs"], ["age", 22], ["email", 0], ["admin", "f"], ["password", "Smallvill3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+Completed 500 Internal Server Error in 2235ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.password: SELECT  "users".* FROM "users" WHERE "users"."first_name" = ? AND "users"."last_name" = ? AND "users"."user_name" = ? AND "users"."age" = ? AND "users"."email" = ? AND "users"."admin" = ? AND "users"."password" = ? LIMIT ?):
+  
+app/controllers/users_controller.rb:11:in `create'
+Started POST "/users" for ::1 at 2019-11-06 09:33:46 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/MFHbL0tsnuZ8BfiBRxYLoGVlIVunAj+v+CusY0+E4JMcz1mUZW+ugaSSwYj7dTndkzYId8Wp5zArMLZ0+tPA==", "user"=>{"first_name"=>"B", "last_name"=>"S", "user_name"=>"bs", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bs"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username: SELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?):
+  
+app/controllers/users_controller.rb:11:in `create'
+Started POST "/users" for ::1 at 2019-11-06 09:35:18 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/MFHbL0tsnuZ8BfiBRxYLoGVlIVunAj+v+CusY0+E4JMcz1mUZW+ugaSSwYj7dTndkzYId8Wp5zArMLZ0+tPA==", "user"=>{"first_name"=>"b", "last_name"=>"s", "user_name"=>"bs", "age"=>"22", "email"=>"bs@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bs"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+Completed 500 Internal Server Error in 521ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username: SELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?):
+  
+app/controllers/users_controller.rb:11:in `create'
+Started POST "/users" for ::1 at 2019-11-06 09:36:03 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E/MFHbL0tsnuZ8BfiBRxYLoGVlIVunAj+v+CusY0+E4JMcz1mUZW+ugaSSwYj7dTndkzYId8Wp5zArMLZ0+tPA==", "user"=>{"first_name"=>"b", "last_name"=>"s", "user_name"=>"bs", "age"=>"22", "email"=>"bs@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bs"], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bs"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+Completed 500 Internal Server Error in 25762ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.username: SELECT  "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?):
+  
+app/controllers/users_controller.rb:11:in `create'
+Started GET "/users/new" for ::1 at 2019-11-06 09:36:39 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 2040ms (Views: 1903.0ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:36:55 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t+qwuv87pYSNTjT+G6psKpfsPlbrojJcQ+3HozZlPKitKHlS1IlFt4szvY2LMaoZsDNbZHlkGOHKEPYSlx5p2g==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"0", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (225.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "user_name", "age", "email", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Benito"], ["last_name", "Santos"], ["user_name", "benitolsantos"], ["age", 22], ["email", 0], ["password_digest", "$2a$12$RtAB7D5HYmRkStEXshv6Sutxwy7lopaBHVKvDuGToLs3oChJl54P2"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (23.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 5582ms (ActiveRecord: 248.8ms)
+
+
+Started GET "/users/1" for ::1 at 2019-11-06 09:37:01 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 1362ms (Views: 1030.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signout" for ::1 at 2019-11-06 09:37:08 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-11-06 09:37:12 -0500
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 168ms (Views: 167.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2019-11-06 09:37:22 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 681ms (Views: 515.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-11-06 09:37:25 -0500
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 59ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:37:26 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 153ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-11-06 09:40:09 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 682ms (Views: 640.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-11-06 09:40:28 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"keSd5eAggPi2E0oo7Lk6vNDYVZkg7n0oP8bDDgLYhLRxFtTpqwglUr17lpQfLVJzT5tpsvUKd8zpnDYrl94iNQ==", "user"=>{"first_name"=>"Lorenzo", "last_name"=>"Salvador", "user_name"=>"lorenzo4", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "lorenzo4"], ["LIMIT", 1]]
+  ↳ (pry):6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "lorenzo4"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (106.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "user_name", "age", "email", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lorenzo"], ["last_name", "Salvador"], ["user_name", "lorenzo4"], ["age", 22], ["email", 0], ["admin", "t"], ["password_digest", "$2a$12$LMdyhbj.GmrbNPKcPqHkFucGnsbTypVl9uUETpOLDEXFU/iX303U2"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 38392ms (ActiveRecord: 109.4ms)
+
+
+Started GET "/users/2" for ::1 at 2019-11-06 09:41:07 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 93ms (Views: 38.4ms | ActiveRecord: 2.3ms)
+
+

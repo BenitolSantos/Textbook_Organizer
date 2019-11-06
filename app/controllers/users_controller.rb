@@ -1,16 +1,19 @@
 
+require 'pry'
 class UsersController < ApplicationController 
     def new
         @user = User.new
     end
 
-    def create 
-        @user = User.new(user_params)
-        byebug
+    def create #byebug is bad
+        #use pry
+        binding.pry
+        @user = User.find_by(:user_name => user_params[:user_name])
+
         if @user 
             flash[:message] = "Username already taken"
             redirect_to new_user_path
-        elsif !@user 
+        elsif @user == nil
             @user = User.create(user_params)
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
