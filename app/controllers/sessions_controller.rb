@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
     def destroy
         session.delete(:user_id) 
         redirect_to root_path
+        #testing if this works
     end
 
     private 
