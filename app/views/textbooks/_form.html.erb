@@ -1,0 +1,7 @@
+<%= form_for @textbook do |f| %>
+    Name: <%= f.text_field :title%>
+    Description: <%= f.text_area :description %>
+    Total Pages: <%= f.text_field :pages %>
+    Book Price: <%= f.text_field :cost %>
+    <%= f.submit %>
+<% end %>
