@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static#home'
+  #http://localhost:3000/rails/info/routes
+  #This can show paths when the server is running
+  #https://stackoverflow.com/questions/7465919/rails-link-to-method-geting-when-it-should-delete
+  #get show page link_to delete
   resources :users
     delete '/users/:id' => 'users#destroy', as: :delete_user
     #get '/users/new', to: 'users#new'
