@@ -1,16 +1,16 @@
-<h1>Attractions:</h1>
+<h1>Subjects:</h1>
 <% if @user.admin %>
-    <%=link_to "New Attraction", new_attraction_path %>
+    <%=link_to "New Subject", new_subject_path %>
 <% end %>
 
 
 
-<% @attractions.each do |attraction| %>
-    Title: <%= attraction.name %>
+<% @subjects.each do |subject| %>
+    Title: <%= subject.name %>
     <% if @user.admin %>
-        <%=link_to "Show #{attraction.name}", attraction_path(attraction) %>
+        <%=link_to "Show #{subject.name}", subject_path(subject) %>
     <% else %>
-        <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+        <%= link_to "Go on #{subject.name}", subject_path(subject) %>
     <% end %>
 <% end%>
 
