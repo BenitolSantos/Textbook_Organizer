@@ -1,13 +1,14 @@
  
-  <%= @attraction.name %>
-  <%= form_for(@ride) do |f| %>
+  <%= @textbook.title %>
+  <%= form_for(@current_page) do |f| %>
     <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :attraction_id %>
-    <%= f.submit "Go on this ride" %>
+    <%= f.hidden_field :textbook_id %>
+    <%= f.hidden_field :textbook_id %>
+    <%= f.submit "Change Page" %>
   <%end%>
 
  <% if @user.admin %>
-        <%=link_to "Edit Attraction", edit_attraction_path(@attraction) %>
+        <%=link_to "Edit Textbook", edit_textbook_path(@textbook) %>
   <% end %>
 
 
