@@ -21,6 +21,13 @@ class TextbooksController < ApplicationController
         @textbook = Textbook.find(params[:id])
     end
 
+    def destroy
+        @textbook = User.find(params[:id])
+        @textbook.destroy
+        redirect_to textbooks_path
+    end
+
+
 
     private 
 
