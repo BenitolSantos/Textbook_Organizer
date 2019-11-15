@@ -178,4 +178,8 @@ From Dwayne Harmon to Everyone: (07:37 PM)
 
 https://www.tutorialspoint.com/python/python_tuples.htm 1. https://www.justinweiss.com/articles/should-you-use-scopes-or-class-methods/  2. https://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html  3. https://guides.rubyonrails.org/active_record_querying.html 
 From Dwayne Harmon to Everyone: (08:08 PM)
- https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-associations https://www.digitalocean.com/community/tutorials/how-to-add-bootstrap-to-a-ruby-on-rails-application
+ https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-associations https://
+
+www.digitalocean.com/community/tutorials/how-to-add-bootstrap-to-a-ruby-on-rails-application
+
+https://guides.rubyonrails.org/active_record_querying.html
