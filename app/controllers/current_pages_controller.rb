@@ -31,7 +31,7 @@ class CurrentPagesController < ApplicationController
     private
         
         def current_page_params
-            params.require(:current_page).permit(:first_name,:last_name,:user_name,:age,:email,:admin,:password)
+            params.require(:current_page).permit(:page_num,:chapter_num,:user_id,:textbook_id)
         end
 
 end
