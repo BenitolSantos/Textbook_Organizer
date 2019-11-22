@@ -1,43 +1,37 @@
 class CurrentPagesController < ApplicationController  
     def index 
         @user = User.find_by_id(session[:user_id])
-        @attractions = Attraction.all
+        @current_pages = Current_Page.all
     end
 
-    def new 
+    def new
     end
 
     def create
-        @attraction = Attraction.create(attraction_params)
-        redirect_to attraction_path(@attraction)
-    end
-
-    def show
-        @attraction = Attraction.find(params[:id])
-        @user = User.find_by(id: session[:user_id])
-        @ride = Ride.new(:attraction_id => @attraction.id, :user_id => @user.id) 
+        @current_page = Current_Page.create(current_pages)
+        redirect_to current_page_path(@current_pages)
     end
 
     def edit
-        @attraction = Attraction.find(params[:id])
+        @current_page = Current_Page.find(params[:id])
         @user = User.find_by(id: session[:user_id])
     end
 
     def update 
-        @attraction = Attraction.find(params[:id])
-        @attraction.update(attraction_params)
-        redirect_to attraction_path(@attraction)
+        @current_page = Current_Page.find(params[:id])
+        @current_page.update(attraction_params)
+        redirect_to current_page_path(@current_page)
     end
 
     def destroy
-        @attraction.destroy
-        redirect_to attractions_path
+        @current_page.destroy
+        redirect_to textbook_path
     end
 
     private
         
-        def attraction_params
-            params.require(:attraction).permit(:first_name,:last_name,:user_name,:age,:email,:admin,:password)
+        def current_page_params
+            params.require(:current_page).permit(:first_name,:last_name,:user_name,:age,:email,:admin,:password)
         end
 
 end
