@@ -19,7 +19,7 @@ class CurrentPagesController < ApplicationController
 
     def update 
         @current_page = Current_Page.find(params[:id])
-        @current_page.update(attraction_params)
+        @current_page.update(current_page_params)
         redirect_to current_page_path(@current_page)
     end
 
