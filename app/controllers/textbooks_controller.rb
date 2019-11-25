@@ -19,6 +19,9 @@ class TextbooksController < ApplicationController
 
     def show 
         @textbook = Textbook.find(params[:id])
+        #nested form renders current page views useless.
+        #also more DRY and simple.
+        #no conditionals for seperate current_page views
     end
 
     def destroy
