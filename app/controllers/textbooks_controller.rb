@@ -4,8 +4,7 @@ class TextbooksController < ApplicationController
         @user = User.find_by(id: session[:user_id])
     end
 
-    def new   
-        @textbook = Textbook.new
+    def new
     end
 
     def create 

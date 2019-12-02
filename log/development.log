@@ -8958,3 +8958,97 @@ Processing by Rails::InfoController#routes as HTML
 Completed 200 OK in 105ms (Views: 97.3ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-12-02 16:16:41 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 1687ms (Views: 1682.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2019-12-02 16:17:56 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 180ms (Views: 105.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/signin" for ::1 at 2019-12-02 16:18:02 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4GHQ7ryyc663XlaHTQ5oSWFw3N9kQQqrOppe7DWJuVHXFxYv1qa6ILS7/k0WvheV+33HXfl3tI4ZYr8qzseFBg==", "user"=>{"user_name"=>"benitolsantos", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 469ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-02 16:18:03 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 65ms (Views: 36.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-02 16:18:06 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 219ms (Views: 33.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/textbooks/new" for ::1 at 2019-12-02 16:18:08 -0500
+Processing by TextbooksController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/textbooks_controller.rb:7:in `new'
+Started GET "/textbooks/new" for ::1 at 2019-12-02 16:19:22 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (2.1ms)
+  Rendered textbooks/new.html.erb within layouts/application (25.1ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @textbook do |f| %>
+    2:     Name: <%= f.text_field :title%>
+    3:     Description: <%= f.text_area :description %>
+    4:     Total Pages: <%= f.text_field :pages %>
+  
+app/views/textbooks/_form.html.erb:1:in `_app_views_textbooks__form_html_erb__4221091510751456945_70352610768140'
+app/views/textbooks/new.html.erb:1:in `_app_views_textbooks_new_html_erb___2440436210937387911_70352572478840'
+Started GET "/textbooks/new" for ::1 at 2019-12-02 16:20:11 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (118.2ms)
+  Rendered textbooks/new.html.erb within layouts/application (119.6ms)
+Completed 200 OK in 177ms (Views: 174.9ms | ActiveRecord: 0.0ms)
+
+
