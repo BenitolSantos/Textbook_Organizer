@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   resources :textbooks
     #get '/textbooks/new', to: 'textbooks#new'
-    #post '/textbooks/new', to: 'textbooks#create'
+    post '/textbooks/new', to: 'textbooks#create'
     #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook
     #post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
   resources :current_pages

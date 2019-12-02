@@ -41,6 +41,6 @@ class TextbooksController < ApplicationController
     private 
 
         def textbook_params
-         params.require(:ride).permit(:user_id, :attraction_id)
+         params.require(:ride).permit(:title,:description,:pages,:cost)
         end
 end
