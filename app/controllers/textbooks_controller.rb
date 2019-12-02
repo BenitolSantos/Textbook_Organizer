@@ -1,4 +1,9 @@
 class TextbooksController < ApplicationController
+    def index 
+        @textbooks = Textbook.all
+        @user = User.find_by(id: session[:user_id])
+    end
+
     def new   
         @textbook = Textbook.new
     end

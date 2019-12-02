@@ -8861,3 +8861,100 @@ Processing by UsersController#new as HTML
 Completed 200 OK in 322ms (Views: 319.1ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-12-02 16:04:51 -0500
+  [1m[35m (30.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (56.7ms)
+Completed 200 OK in 2144ms (Views: 2139.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-12-02 16:05:03 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (164.1ms)
+  Rendered users/new.html.erb within layouts/application (167.2ms)
+Completed 200 OK in 411ms (Views: 229.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users" for ::1 at 2019-12-02 16:05:17 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6qZ6WLEPIW8m95g75GA6CO+nu1jy6rSupm09L7EjaTYVrsbXXYe11peLZFjM7PKcljj+m26KkEb5xB9JJhVVmg==", "user"=>{"first_name"=>"Benito", "last_name"=>"Santos", "user_name"=>"benitolsantos", "age"=>"22", "email"=>"benitolsantos@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (21.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "user_name", "age", "email", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "Benito"], ["last_name", "Santos"], ["user_name", "benitolsantos"], ["age", 22], ["email", 0], ["admin", "t"], ["password_digest", "$2a$12$XjYZd1WK6x1bn7CPnaj3yO.NHXQjSHj6nPTB5iMRo3oChNTtpNpBC"]]
+  ↳ app/controllers/users_controller.rb:17
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 64034ms (ActiveRecord: 24.0ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-02 16:06:21 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 131ms (Views: 53.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-02 16:06:59 -0500
+Processing by TextbooksController#index as HTML
+  Rendering textbooks/index.html.erb within layouts/application
+  Rendered textbooks/index.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin' for nil:NilClass):
+    1: <h1>Attractions:</h1>
+    2: <% if @user.admin %>
+    3:     <%=link_to "New Textbook", new_textbook_path %>
+    4: <% end %>
+    5: 
+  
+app/views/textbooks/index.html.erb:2:in `_app_views_textbooks_index_html_erb__3545217404940954425_70124993705660'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/rails/info/routes" for ::1 at 2019-12-02 16:07:53 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (61.3ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.7ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (91.2ms)
+Completed 200 OK in 105ms (Views: 97.3ms | ActiveRecord: 0.0ms)
+
+
