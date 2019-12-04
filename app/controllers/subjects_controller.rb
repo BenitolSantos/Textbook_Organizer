@@ -1,10 +1,10 @@
 class SubjectsController < ApplicationController
-    def new   
+    def new  
+      @subject = Subject.new 
     end
 
     def create
-        @ride = Ride.create(ride_params)
-        flash[:message] = @ride.take_ride
+        @subject = Subject.create(subject_params)
         redirect_to user_path(@ride.user)
     end
 
@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
 
     private 
 
-        def ride_params
-         params.require(:ride).permit(:user_id, :attraction_id)
+        def subject_params
+         params.require(:subject).permit(:name, :credits, :user_id, :attraction_id)
         end
 end
