@@ -9241,3 +9241,85 @@ ActionController::ParameterMissing (param is missing or the value is empty: ride
   
 app/controllers/textbooks_controller.rb:44:in `textbook_params'
 app/controllers/textbooks_controller.rb:11:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-12-04 13:58:36 -0500
+  [1m[35m (21.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 3016ms (Views: 2722.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2019-12-04 13:58:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 238ms (Views: 102.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/signin" for ::1 at 2019-12-04 13:58:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X1qDaWCV5Ao0kKHDJlJMibLOdx8Og2/Lq/2PjZV4vqloLEWoCoEthDd1CQl94jNVKMNsnZO10e6IBW5LbjaC/g==", "user"=>{"user_name"=>"benitolsantos", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (42.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 513ms (ActiveRecord: 42.0ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-04 13:58:52 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 145ms (Views: 59.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-04 13:58:59 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (23.3ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (26.5ms)
+Completed 200 OK in 233ms (Views: 69.6ms | ActiveRecord: 24.0ms)
+
+
+Started GET "/textbooks/new" for ::1 at 2019-12-04 13:59:03 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (141.2ms)
+  Rendered textbooks/new.html.erb within layouts/application (167.4ms)
+Completed 200 OK in 307ms (Views: 281.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/textbooks/new" for ::1 at 2019-12-04 13:59:13 -0500
+Processing by TextbooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EupuXF3Pj32MZX/hhS+WgAeSMD1Q5kVytWIUz1CKrqjGBt1FTn98YV05J1fsvks2cOd1OAsIbbDmsuGq30HYhg==", "textbook"=>{"title"=>"Math", "description"=>"Arithemetic", "pages"=>"2000", "cost"=>"200"}, "commit"=>"Save Textbook"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+Completed 500 Internal Server Error in 565ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `take_ride' for #<Textbook:0x00007fae2842c600>):
+  
+app/controllers/textbooks_controller.rb:12:in `create'

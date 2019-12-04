@@ -9,7 +9,6 @@ class TextbooksController < ApplicationController
 
     def create 
         @textbook = Textbook.create(textbook_params)
-        flash[:message] = @textbook.take_ride
         redirect_to user_path(@textbook.user)
     end
 
