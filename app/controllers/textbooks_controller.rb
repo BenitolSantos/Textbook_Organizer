@@ -9,7 +9,9 @@ class TextbooksController < ApplicationController
 
     def create 
         @textbook = Textbook.create(textbook_params)
-        redirect_to user_path(@textbook.user)
+        @user = User.find_by(id: session[:user_id])
+        binding.pry
+        redirect_to user_path(@user)
     end
 
     def edit 
