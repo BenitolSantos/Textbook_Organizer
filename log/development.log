@@ -9428,3 +9428,166 @@ Completed 500 Internal Server Error in 442900ms (ActiveRecord: 1.2ms)
 ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
   
 app/controllers/textbooks_controller.rb:13:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2019-12-04 15:52:17 -0500
+  [1m[35m (47.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (79.5ms)
+Completed 200 OK in 13283ms (Views: 13275.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2019-12-04 15:53:06 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (78.8ms)
+Completed 200 OK in 281ms (Views: 136.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/signin" for ::1 at 2019-12-04 15:53:12 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EuE+AlcSBJszheOBc/GX4eJbavirkrzVePYt+pR1swoll/jDPQbNFTBgS0soQeg9eFZxejakAvBbDsw8bzuPXQ==", "user"=>{"user_name"=>"benitolsantos", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 368ms (ActiveRecord: 20.2ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-04 15:53:13 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 66ms (Views: 46.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-04 15:53:18 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.5ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 172ms (Views: 39.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/textbooks/new" for ::1 at 2019-12-04 15:53:19 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (122.1ms)
+  Rendered textbooks/new.html.erb within layouts/application (124.3ms)
+Completed 200 OK in 211ms (Views: 192.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/textbooks/new" for ::1 at 2019-12-04 15:53:34 -0500
+Processing by TextbooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J8RZHtGDjJriILOnzqS/Nl0jkflwTcipr3CBgIe+KVHzKOoHwjN/hjN86xGnNWKAKlbU/Cuj4Gv8oHTlCHVffw==", "textbook"=>{"title"=>"Math", "description"=>"arithmetic", "pages"=>"2000", "cost"=>"200"}, "commit"=>"Save Textbook"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:12
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ (pry):2
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 419892ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-04 16:00:34 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 485ms (Views: 409.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-04 16:00:52 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.6ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 159ms (Views: 119.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/textbooks/new" for ::1 at 2019-12-04 16:00:53 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (4.2ms)
+  Rendered textbooks/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 126ms (Views: 98.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/textbooks/new" for ::1 at 2019-12-04 16:01:35 -0500
+Processing by TextbooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UU0V8eYVnjwKOk55ZOcjNfNCr0Uo7uYz/DKFFVZbReeFoabo9aVtINtmFs8Ndv6DhDfqQHMAzvGv4nBw2ZAzyQ==", "textbook"=>{"title"=>"Math", "description"=>"math", "pages"=>"2000", "cost"=>"200"}, "commit"=>"Save Textbook"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:11
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:12
+Redirected to http://localhost:3000/users/4
+Completed 302 Found in 51743ms (ActiveRecord: 5.0ms)
+
+
+Started GET "/users/4" for ::1 at 2019-12-04 16:02:27 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 71ms (Views: 49.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/textbooks" for ::1 at 2019-12-04 16:02:31 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.3ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 99ms (Views: 83.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/textbooks/new" for ::1 at 2019-12-04 16:02:32 -0500
+Processing by TextbooksController#new as HTML
+  Rendering textbooks/new.html.erb within layouts/application
+  Rendered textbooks/_form.html.erb (3.7ms)
+  Rendered textbooks/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 101ms (Views: 80.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/textbooks/new" for ::1 at 2019-12-04 16:02:42 -0500
+Processing by TextbooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UeEV1qAZPodolr3A2Litb4Hasy/tp4xUknI2p7b0uL6FDabPs6nNm7nK5XaxKXDZ9q/2KrZJpJbBosPCOT/OkA==", "textbook"=>{"title"=>"Math", "description"=>"new book", "pages"=>"2000", "cost"=>"200"}, "commit"=>"Save Textbook"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/textbooks_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:13
