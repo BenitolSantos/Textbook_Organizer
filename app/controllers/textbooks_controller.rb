@@ -5,11 +5,15 @@ class TextbooksController < ApplicationController
     end
 
     def new
+        @textbook = Textbook.new
     end
 
     def create 
         @textbook = Textbook.create(textbook_params)
         @user = User.find_by(id: session[:user_id])
+        @current_page = Current_Page.new
+        @current_page.textbook = @textbook
+        @current_page.user = @user
         binding.pry
         redirect_to user_path(@user)
     end
