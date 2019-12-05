@@ -5,13 +5,15 @@ class SubjectsController < ApplicationController
 
     def create
         @subject = Subject.create(subject_params)
-        redirect_to user_path(@ride.user)
+        redirect_to user_path(@subject.user)
     end
 
   def edit 
+    @subject = Subject.find(params[:id])
   end
 
   def update
+    @subject = Subject.find(params[:id])
   end
 
 

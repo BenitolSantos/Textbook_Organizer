@@ -77,7 +77,8 @@ validates :name, presence: true
 
 <br>
 
-
+#worst case scenario make users_textbooks as a join table
+#current pages can be destroyed. and the whole can be simplified
 
 #### Current_page (used to monitor progress throughout book)
  
@@ -141,7 +142,7 @@ https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-assoc
   <br>
 
 - [X] Include nested resource show or index (routes.erb 
-  * URL e.g. categories/3/posts -> class/3/books/
+  * URL e.g. categories/3/posts -> class/3/textbooks/
   <br>
 
 - [] Include nested resource "new" form ()
