@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_163648) do
-
-  create_table "current_pages", force: :cascade do |t|
-    t.integer "page_num"
-    t.integer "chapter_num"
-    t.integer "user_id"
-    t.integer "textbook_id"
-  end
+ActiveRecord::Schema.define(version: 2019_10_09_163514) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
