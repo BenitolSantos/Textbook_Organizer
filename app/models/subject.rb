@@ -1,7 +1,6 @@
 class Subject < ApplicationRecord
-    has_many :textbooks
-    has_many :users, through: :textbooks
- 
+    belongs_to :textbook
+    belongs_to :user
     validates :name, presence: true
  end
  

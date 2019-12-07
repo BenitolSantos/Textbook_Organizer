@@ -1,6 +1,5 @@
 class Textbook < ActiveRecord::Base
-  belongs_to :subject
-  has_many :current_pages
-  has_many :users, through: :current_pages
+  has_many :subjects
+  has_many :users, through: :subjects
   validates :title, presence: true
 end

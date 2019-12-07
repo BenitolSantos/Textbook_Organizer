@@ -52,9 +52,6 @@ chapter_num | integer
 #### User
 has_many :textbooks
 has_many :subjects, through: :textbooks
-has_many :current_pages
-has_many :textbooks, through: :current_pages 
-
 validates :name, presence: true
 
 <br>
@@ -70,8 +67,8 @@ validates :title, presence: true
 
 #### Subject
 
-has_many :textbooks
-has_many :users, through: :textbooks
+belongs_to :textbook
+belongs_to :user
 
 validates :name, presence: true
 
