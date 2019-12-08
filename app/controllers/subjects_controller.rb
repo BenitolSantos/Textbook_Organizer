@@ -1,4 +1,7 @@
 class SubjectsController < ApplicationController
+    def index 
+    end
+
     def new  
       @subject = Subject.new 
     end
@@ -8,13 +11,22 @@ class SubjectsController < ApplicationController
         redirect_to user_path(@subject.user)
     end
 
-  def edit 
-    @subject = Subject.find(params[:id])
-  end
+    def edit 
+     @subject = Subject.find(params[:id])
+    end
 
-  def update
-    @subject = Subject.find(params[:id])
-  end
+    def update
+     @subject = Subject.find(params[:id])
+    end
+
+    def show 
+      @subject = Subject.find(params[:id])
+      @user = User.find_by(id: session[:user_id])
+      @current_page = Current_Page.new(:textbook_id => @textbook.id, :user_id => @user.id)
+      #nested form renders current page views useless.
+      #also more DRY and simple.
+      #no conditionals for seperate current_page views
+    end
 
 
     private 

@@ -14,10 +14,6 @@ class TextbooksController < ApplicationController
     def create 
         @textbook = Textbook.create(textbook_params)
         @user = User.find_by(id: session[:user_id])
-        @current_page = Current_Page.new
-        @current_page.textbook = @textbook
-        @current_page.user = @user
-        binding.pry
         redirect_to user_path(@user)
     end
 
@@ -32,7 +28,6 @@ class TextbooksController < ApplicationController
     def show 
         @textbook = Textbook.find(params[:id])
         @user = User.find_by(id: session[:user_id])
-        @current_page = Current_Page.new(:textbook_id => @textbook.id, :user_id => @user.id)
         #nested form renders current page views useless.
         #also more DRY and simple.
         #no conditionals for seperate current_page views
