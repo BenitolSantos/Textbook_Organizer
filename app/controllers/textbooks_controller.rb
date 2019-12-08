@@ -4,7 +4,10 @@ class TextbooksController < ApplicationController
         @user = User.find_by(id: session[:user_id])
     end
 
+    #we're going to only let admins be able to create books
+    #and users take out books
     def new
+        @user = User.find_by(id: session[:user_id])
         @textbook = Textbook.new
     end
 
