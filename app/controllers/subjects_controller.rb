@@ -1,5 +1,6 @@
 class SubjectsController < ApplicationController
     def index 
+      @subjects = Subject.all
     end
 
     def new  
@@ -22,7 +23,6 @@ class SubjectsController < ApplicationController
     def show 
       @subject = Subject.find(params[:id])
       @user = User.find_by(id: session[:user_id])
-      @current_page = Current_Page.new(:textbook_id => @textbook.id, :user_id => @user.id)
       #nested form renders current page views useless.
       #also more DRY and simple.
       #no conditionals for seperate current_page views

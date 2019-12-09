@@ -6,9 +6,9 @@
 <% @textbooks.each do |textbook| %>
     Title: <%= textbook.name %>
     <% if @user.admin %>
-        <%=link_to "Show full contents of #{textbook.name}", textbook_path(textbook) %>
+        <%=link_to "Edit #{textbook.name}", textbook_path(textbook) %>
     <% else %>
-        <%= link_to "Change page of #{textbook.name}", textbook_path(textbook) %>
+        <%= link_to "Add #{textbook.name}", textbook_path(textbook) %>
     <% end %>
 <% end%>
 
