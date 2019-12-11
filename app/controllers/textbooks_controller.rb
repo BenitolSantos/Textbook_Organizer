@@ -44,8 +44,16 @@ class TextbooksController < ApplicationController
     end
 
     def destroy
-        @textbook = Textbook.find(params[:id])
-        @textbook.destroy
+        @user = User.find_by(id: session[:user_id])
+        if @user.admin
+          @textbook = Textbook.find(params[:id])
+          @textbook.destroy
+        else
+          @user.subjects.each do |subject|
+            @textbook = subject.textbooks.find(textbook_id: params[:id])
+            @textbook.destroy
+          end
+        end
         redirect_to textbooks_path
     end
 
