@@ -8,7 +8,11 @@ class TextbooksController < ApplicationController
     #and users take out books
     def new
         @user = User.find_by(id: session[:user_id])
-        @textbook = Textbook.new
+        if @user.admin
+         @textbook = Textbook.new
+        else 
+         @textbooks = @textbooks.all
+        end
     end
 
     def create 
@@ -18,7 +22,13 @@ class TextbooksController < ApplicationController
     end
 
     def edit 
-        @textbook = Textbook.find(params[:id])
+        @user = User.find_by(id: session[:user_id])
+        if @user.admin
+            @textbook = Textbook.find(params[:id])
+        else 
+            flash[:message] = "Only admins can edit books"
+            ridirect_to textbooks_path
+        end
     end
 
     def update
@@ -34,7 +44,7 @@ class TextbooksController < ApplicationController
     end
 
     def destroy
-        @textbook = User.find(params[:id])
+        @textbook = Textbook.find(params[:id])
         @textbook.destroy
         redirect_to textbooks_path
     end
