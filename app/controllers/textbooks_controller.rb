@@ -16,8 +16,12 @@ class TextbooksController < ApplicationController
     end
 
     def create 
-        @textbook = Textbook.create(textbook_params)
         @user = User.find_by(id: session[:user_id])
+        if @user.admin
+         @textbook = Textbook.create(textbook_params)
+        else
+         @textbook = Textbook.find_by(id: session[:user_id])
+        end
         redirect_to user_path(@user)
     end
 

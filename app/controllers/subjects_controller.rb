@@ -26,6 +26,7 @@ class SubjectsController < ApplicationController
     def show 
       @subject = Subject.find(params[:id])
       @user = User.find_by(id: session[:user_id])
+      @subject_textbooks = @subject.textbooks
       @textbooks = Textbook.all
       @textbook = Textbook.new
       #nested form renders current page views useless.
