@@ -1,8 +1,19 @@
  
+
+
   <%= @subject.name %>
 
  <% if @user.admin %>
         <%=link_to "Edit Subject", edit_subject_path(@subject) %>
   <% end %>
 
+
+<% @subject.textbooks.each do |textbook| %>
+    Title: <%= textbook.name %>
+    <% if @user.admin %>
+        <%=link_to "Edit #{textbook.name}", textbook_path(textbook) %>
+    <% else %>
+        <%= link_to "Add #{textbook.name}", textbook_path(textbook) %>
+    <% end %>
+<% end%>
 
