@@ -45,10 +45,10 @@ class TextbooksController < ApplicationController
 
     def destroy
         @user = User.find_by(id: session[:user_id])
-        if @user.admin
+        if @user.admin #delete from all textbooks
           @textbook = Textbook.find(params[:id])
           @textbook.destroy
-        else
+        else #delete from student's list of textbooks
           @user.subjects.each do |subject|
             @textbook = subject.textbooks.find(textbook_id: params[:id])
             @textbook.destroy
