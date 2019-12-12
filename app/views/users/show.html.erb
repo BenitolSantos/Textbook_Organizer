@@ -9,6 +9,23 @@ Age: <%= @user.age %>
 
 Email: <%= @user.email %>
 
+<% @user.subjects.each do |subject| %>
+    Title: <%= subject.name %>
+    <% if @user.admin %>
+        <%=link_to "Edit #{subject.name}", subject_path(subject) %>
+            <% subject.textbooks.each do |textbook| %>
+            Title: <%= textbook.name %>
+            <%=link_to "Edit #{textbook.name}", subject_path(subject) %>
+        <% end%>
+    <% else %>
+        <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
+        <% subject.textbooks.each do |textbook| %>
+            Title: <%= textbook.name %>
+            <%=link_to "Add #{textbook.name}", new_subject_path(subject) %>
+        <% end%>
+    <% end %>
+<% end%>
+
 <%= link_to "Delete User",  delete_user_path, :method => 'delete' %>
 <%= link_to "Log Out",  signout_path %>
 <%= link_to "Textbooks", textbooks_path %>
