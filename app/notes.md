@@ -135,10 +135,10 @@ https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-assoc
 - [X] Include logout
   <br>
 
-- [X] Include third party signup/login
+- [] Include third party signup/login
   <br>
 
-- [X] Include nested resource show or index (routes.erb 
+- [] Include nested resource show or index (routes.erb 
   * URL e.g. categories/3/posts -> class/3/textbooks/
   <br>
 
