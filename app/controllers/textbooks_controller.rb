@@ -11,7 +11,7 @@ class TextbooksController < ApplicationController
         if @user.admin
          @textbook = Textbook.new
         else 
-         @textbooks = @textbooks.all
+         @textbooks = Textbook.all
         end
     end
 
@@ -19,8 +19,9 @@ class TextbooksController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         if @user.admin
          @textbook = Textbook.create(textbook_params)
+         @subject = Subject.new
         else
-         @textbook = Textbook.find_by(id: session[:user_id])
+         @textbook = Textbook.find_by(id: params[:id])
         end
         redirect_to user_path(@user)
     end
