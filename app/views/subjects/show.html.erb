@@ -9,11 +9,11 @@
 
 
 <% @subject.textbooks.each do |textbook| %>
-    Title: <%= textbook.name %>
+    Title: <%= textbook.title %>
     <% if @user.admin %>
-        <%=link_to "Edit #{textbook.name}", textbook_path(textbook) %>
+        <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
     <% else %>
-        <%=link_to "Add #{textbook.name}", new_textbook_path(textbook) %>
+        <%=link_to "Add #{textbook.title}", new_textbook_path(textbook) %>
     <% end %>
 <% end%>
 
