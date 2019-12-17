@@ -1,9 +1,0 @@
-<% if @user.admin %>
-    <%= render 'form' %>
-<% else %>
-    <h5> Add your textbook from the list </h5>
-    <%= form_for :textbook do |f| %>
-      <%= f.collection_select :id, @textbooks, :id, :title %>
-    <%= f.submit %>
-    <% end %>
-<% end %>

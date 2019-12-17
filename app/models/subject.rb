@@ -1,6 +1,7 @@
 class Subject < ApplicationRecord
-    belongs_to :textbook
-    belongs_to :user
+    has_many :textbooks
+    has_many :user_subjects
+    has_many :users, through: :user_subjects
     validates :name, presence: true
 
     def add_textbook
