@@ -10,12 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_09_163514) do
+ActiveRecord::Schema.define(version: 2019_12_17_035320) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
-    t.integer "textbook_id"
   end
 
   create_table "textbooks", force: :cascade do |t|
@@ -23,6 +21,12 @@ ActiveRecord::Schema.define(version: 2019_10_09_163514) do
     t.string "description"
     t.integer "pages"
     t.integer "cost"
+    t.integer "subject_id"
+  end
+
+  create_table "user_subjects", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "subject_id"
   end
 
   create_table "users", force: :cascade do |t|
