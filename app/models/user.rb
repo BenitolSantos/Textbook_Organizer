@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
     has_many :user_subjects
     has_many :subjects, through: :user_subjects
     has_many :textbooks, through: :subjects
