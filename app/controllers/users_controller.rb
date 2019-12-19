@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @subject = Subject.new
         if session[:user_id] == nil 
           flash[:message] = "Please login."
           redirect_to root_path

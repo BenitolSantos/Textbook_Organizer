@@ -9,6 +9,11 @@ Age: <%= @user.age %>
 
 Email: <%= @user.email %>
 
+<% if @user.admin %>
+<%=link_to "Create new subject", new_subject_path(@subject)%>
+<% end %>
+
+ <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
 <% @user.subjects.each do |subject| %>
     Title: <%= subject.name %>
     <% if @user.admin %>
