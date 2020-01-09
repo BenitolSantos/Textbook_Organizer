@@ -13,20 +13,20 @@ Email: <%= @user.email %>
 <%=link_to "Create new subject", new_subject_path(@subject)%>
 <% end %>
 
- <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
-<% @user.subjects.each do |subject| %>
+ <%=link_to "Add #{@subject.name}", new_subject_path(@subject) %>
+<% @user.subjects.each do |@subject| %>
     Title: <%= subject.name %>
     <% if @user.admin %>
-        <%=link_to "Edit #{subject.name}", subject_path(subject) %>
-            <% subject.textbooks.each do |textbook| %>
+        <%=link_to "Edit #{@subject.name}", subject_path(@subject) %>
+            <% @subject.textbooks.each do |textbook| %>
             Title: <%= textbook.name %>
             <%=link_to "Edit #{textbook.name}", subject_path(subject) %>
         <% end%>
     <% else %>
-        <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
+        <%=link_to "Add #{@subject.name}", new_subject_path(@subject) %>
         <% subject.textbooks.each do |textbook| %>
             Title: <%= textbook.name %>
-            <%=link_to "Add #{textbook.name}", new_subject_path(subject) %>
+            <%=link_to "Add #{textbook.name}", new_subject_path(@subject) %>
         <% end%>
     <% end %>
 <% end%>
