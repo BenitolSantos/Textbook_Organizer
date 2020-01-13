@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
     end
 
     def new  
-      @subject = Subject.new 
+      @subject = Subject.new
     end
 
     def create

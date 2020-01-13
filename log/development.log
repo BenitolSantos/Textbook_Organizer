@@ -11956,3 +11956,448 @@ Did you mean?  @subject):
     19:     <% if @user.admin %>
   
 app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__1969620153275903746_70224666116600'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2020-01-12 21:51:11 -0500
+  [1m[35m (26.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 1768ms (Views: 1763.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2020-01-12 21:51:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (54.2ms)
+Completed 200 OK in 247ms (Views: 90.5ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/signin" for ::1 at 2020-01-12 21:52:06 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7qFOZsWBxpF+UbQsb23KkscJYeCiFU3GmXaKTa0BxtwaR3BI6aXYOQat3gTnMim/5s7i02rZbVKM4+/APlTRnQ==", "user"=>{"user_name"=>"adminman", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (15.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "adminman"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 86ms (ActiveRecord: 15.4ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-12 21:52:06 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/Users/benitolsantos/blog-flash/Textbook_Organizer/app/views/users/show.html.erb:17: formal argument cannot be an instance variable
+...user.subjects.each do |@subject| 
+...                       ^~~~~~~~):
+  
+app/views/users/show.html.erb:17: formal argument cannot be an instance variable
+Started GET "/users/1" for ::1 at 2020-01-12 21:52:32 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (9.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (938.7ms)
+Completed 200 OK in 1569ms (Views: 1556.5ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/textbooks" for ::1 at 2020-01-12 21:52:37 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (16.8ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 113ms (Views: 63.9ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/signin" for ::1 at 2020-01-12 21:52:39 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 52ms (Views: 48.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2020-01-12 21:52:51 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IMoGLsZ3t2bTFyq97/fB84NzrPprgaoQ0SCtMw/P5HwVtHRgYnPO2AJa9oAFkABlIq9YO1Kt/XwWh2U7pfQqpg==", "user"=>{"user_name"=>"benitolsantos", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "benitolsantos"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-12 21:52:51 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 82ms (Views: 77.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/textbooks" for ::1 at 2020-01-12 21:52:59 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/textbooks" for ::1 at 2020-01-12 21:53:38 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.4ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 235ms (Views: 230.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/textbooks" for ::1 at 2020-01-12 21:53:40 -0500
+Processing by TextbooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/textbooks_controller.rb:4
+  Rendering textbooks/index.html.erb within layouts/application
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks"[0m
+  ↳ app/views/textbooks/index.html.erb:6
+  Rendered textbooks/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-12 21:54:21 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 639ms (Views: 634.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-01-12 21:55:09 -0500
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [43 times] (56.0ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (71.1ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (175.6ms)
+Completed 200 OK in 235ms (Views: 182.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-12 21:56:27 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 133ms (Views: 129.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/2" for ::1 at 2020-01-12 21:56:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 56ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/subjects" for ::1 at 2020-01-12 21:56:30 -0500
+Processing by SubjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:3
+  Rendering subjects/index.html.erb within layouts/application
+  [1m[36mSubject Load (26.1ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects"[0m
+  ↳ app/views/subjects/index.html.erb:8
+  Rendered subjects/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 119ms (Views: 64.5ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/signout" for ::1 at 2020-01-12 21:58:17 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-01-12 21:58:17 -0500
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 74ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2020-01-12 21:58:19 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 86ms (Views: 82.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2020-01-12 21:58:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LDm+PYymtJySBO7wt1qe9R953K1Ki/mCp+4N7q1OYiNuJGDtrfSoxnHPnAPDI+7mB/u6KG23ppDaWVkPwmZXQQ==", "user"=>{"user_name"=>"adminman", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "adminman"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:8
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-12 21:58:25 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 73ms (Views: 67.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-12 22:00:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 87ms (Views: 83.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:00:16 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:00:59 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:01:08 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:00 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:03 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:04 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:05 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:05 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:07 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:08 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:34 -0500
+Processing by SubjectsController#new as HTML
+  Rendering subjects/new.html.erb within layouts/application
+  Rendered subjects/_form.html.erb (2.1ms)
+  Rendered subjects/new.html.erb within layouts/application (89.0ms)
+Completed 500 Internal Server Error in 190ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @subject do |f| %>
+    2:     Name: <%= f.text_field :name %>
+    3:     <%= f.hidden_field :user_id %>
+    4:     <%= f.hidden_field :textbook_id %>
+  
+app/views/subjects/_form.html.erb:1:in `_app_views_subjects__form_html_erb__513633571846284646_70094018008920'
+app/views/subjects/new.html.erb:1:in `_app_views_subjects_new_html_erb___2576536695329864711_70094017928880'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:48 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:49 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:50 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:50 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:51 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:51 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:05:52 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:06:15 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:06:17 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
+Started GET "/subjects/new" for ::1 at 2020-01-12 22:06:29 -0500
+Processing by SubjectsController#new as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/subjects_controller.rb:7:in `new'
