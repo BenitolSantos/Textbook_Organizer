@@ -12401,3 +12401,49 @@ Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
 ArgumentError (wrong number of arguments (given 0, expected 1)):
   
 app/controllers/subjects_controller.rb:7:in `new'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/subjects/new" for ::1 at 2020-01-13 21:52:38 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.6.4/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SubjectsController#new as HTML
+  Rendering subjects/new.html.erb within layouts/application
+  Rendered subjects/_form.html.erb (34.2ms)
+  Rendered subjects/new.html.erb within layouts/application (99.4ms)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Subject id: nil, name: nil>
+Did you mean?  user_ids
+               user_ids=):
+    1: <%= form_for @subject do |f| %>
+    2:     Name: <%= f.text_field :name %>
+    3:     <%= f.hidden_field :user_id %>
+    4:     <%= f.hidden_field :textbook_id %>
+    5:     <%= f.submit %>
+    6: <% end %>
+  
+app/views/subjects/_form.html.erb:3:in `block in _app_views_subjects__form_html_erb___3849249055255535108_70356561442500'
+app/views/subjects/_form.html.erb:1:in `_app_views_subjects__form_html_erb___3849249055255535108_70356561442500'
+app/views/subjects/new.html.erb:1:in `_app_views_subjects_new_html_erb__67524706034521997_70356561306040'
+Started GET "/subjects/new" for ::1 at 2020-01-13 22:01:29 -0500
+Processing by SubjectsController#new as HTML
+  Rendering subjects/new.html.erb within layouts/application
+  Rendered subjects/_form.html.erb (369.1ms)
+  Rendered subjects/new.html.erb within layouts/application (481.7ms)
+Completed 200 OK in 2935ms (Views: 2932.2ms | ActiveRecord: 0.0ms)
+
+

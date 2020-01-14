@@ -4,8 +4,8 @@ class SubjectsController < ApplicationController
       @subjects = Subject.all
     end
 
-    def new  
-      @subject = Subject.new
+    def new
+      @subject = Subject.new 
     end
 
     def create
