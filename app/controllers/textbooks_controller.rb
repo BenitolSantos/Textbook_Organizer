@@ -1,7 +1,11 @@
 class TextbooksController < ApplicationController
     def index 
-        @textbooks = Textbook.all
         @user = User.find_by(id: session[:user_id])
+        if @user.admin
+            @textbooks = Textbook.all
+        else 
+            redirect_to root_path
+        end
     end
 
     #we're going to only let admins be able to create books
