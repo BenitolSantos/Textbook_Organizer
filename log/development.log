@@ -12447,3 +12447,38 @@ Processing by SubjectsController#new as HTML
 Completed 200 OK in 2935ms (Views: 2932.2ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/subjects" for ::1 at 2020-01-16 01:04:21 -0500
+  [1m[35m (23.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6PAebwvhF2bUgIPRuPGlOq/Y3lnG0VhF7S5hPEBJslSuGmprB9wTDMIdZRKiWE/onC6JkyELABzx32Jyyjt1jA==", "subject"=>{"name"=>"MATH"}, "commit"=>"Create Subject"}
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[36mSubject Create (2.7ms)[0m  [1m[32mINSERT INTO "subjects" ("name") VALUES (?)[0m  [["name", "MATH"]]
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+Completed 500 Internal Server Error in 627ms (ActiveRecord: 29.4ms)
+
+
+  
+NoMethodError (undefined method `user' for #<Subject id: 1, name: "MATH">
+Did you mean?  users):
+  
+app/controllers/subjects_controller.rb:14:in `create'
