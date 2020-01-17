@@ -14,16 +14,21 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
   resources :subjects do
-        #get '/subjects/new', to: 'subjects#new'
+    #get '/subjects/new', to: 'subjects#new'
     #post '/subjects/new', to: 'subjects#create'
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one
+    get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
+    get 'subjects/:id/textbooks/:id' to: 'subjects#textbook'
     resources :textbooks
-      #get '/textbooks/new', to: 'textbooks#new'
       post '/textbooks/new', to: 'textbooks#create'
+  end
+
+  resources :textbooks
+      #get '/textbooks/new', to: 'textbooks#new'
+      #post '/textbooks/new', to: 'textbooks#create', as: 'create_textbook'
       #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook
      #post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
-  end
 
 
   #https://guides.rubyonrails.org/routing.html

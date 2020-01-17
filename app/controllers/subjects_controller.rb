@@ -36,6 +36,17 @@ class SubjectsController < ApplicationController
       #no conditionals for seperate current_page views
     end
 
+    def textbooks_index 
+      @author = Author.find(params[:id])
+      @posts = @author.posts
+      render template: 'textbooks/index'
+    end
+
+    def textbook 
+      @author = Author.find(params[:id])
+      @post = Post.find(params[:post_id])
+      render template: 'textbooks/show'
+    end
 
     private 
 
