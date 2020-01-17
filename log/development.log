@@ -12482,3 +12482,82 @@ NoMethodError (undefined method `user' for #<Subject id: 1, name: "MATH">
 Did you mean?  users):
   
 app/controllers/subjects_controller.rb:14:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started POST "/subjects" for ::1 at 2020-01-16 19:52:53 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6PAebwvhF2bUgIPRuPGlOq/Y3lnG0VhF7S5hPEBJslSuGmprB9wTDMIdZRKiWE/onC6JkyELABzx32Jyyjt1jA==", "subject"=>{"name"=>"MATH"}, "commit"=>"Create Subject"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[36mSubject Create (0.7ms)[0m  [1m[32mINSERT INTO "subjects" ("name") VALUES (?)[0m  [["name", "MATH"]]
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 4.2ms)
+
+
+  
+NoMethodError (undefined method `user=' for #<Subject id: 2, name: "MATH">
+Did you mean?  users=
+               users):
+  
+app/controllers/subjects_controller.rb:14:in `create'
+Started GET "/subjects/new" for ::1 at 2020-01-16 19:53:09 -0500
+Processing by SubjectsController#new as HTML
+  Rendering subjects/new.html.erb within layouts/application
+  Rendered subjects/_form.html.erb (96.8ms)
+  Rendered subjects/new.html.erb within layouts/application (133.7ms)
+Completed 200 OK in 8289ms (Views: 8226.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subjects" for ::1 at 2020-01-16 19:53:43 -0500
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1jK9FIXrje2ORPytV2XDfLlRNeA6MC3lCXd96mg9b3eQ2MkQidaJh5jZGm5NzCmuiqdiKt3qdbwVhn6k4k+orw==", "subject"=>{"name"=>"MATH"}, "commit"=>"Create Subject"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[36mSubject Create (0.6ms)[0m  [1m[32mINSERT INTO "subjects" ("name") VALUES (?)[0m  [["name", "MATH"]]
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:14
+  [1m[36mUserSubject Create (0.8ms)[0m  [1m[32mINSERT INTO "user_subjects" ("user_id", "subject_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["subject_id", 3], ["created_at", "2020-01-17 00:53:44.239650"], ["updated_at", "2020-01-17 00:53:44.239650"]]
+  ↳ app/controllers/subjects_controller.rb:14
+  [1m[35m (14.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:14
+Redirected to http://localhost:3000/subjects/3
+Completed 302 Found in 393ms (ActiveRecord: 25.3ms)
+
+
+Started GET "/subjects/3" for ::1 at 2020-01-16 19:53:44 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:30
+  Rendering subjects/show.html.erb within layouts/application
+  [1m[36mTextbook Load (0.4ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 3]]
+  ↳ app/views/subjects/show.html.erb:22
+  Rendered subjects/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 149ms (Views: 93.0ms | ActiveRecord: 1.3ms)
+
+

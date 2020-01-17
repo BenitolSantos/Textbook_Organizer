@@ -11,7 +11,8 @@ class SubjectsController < ApplicationController
     def create
        @user = User.find_by(id: session[:user_id])
         @subject = Subject.create(subject_params)
-        redirect_to user_path(@subject.user)
+        @subject.users << @user
+        redirect_to subject_path(@subject)
     end
 
     def edit 
