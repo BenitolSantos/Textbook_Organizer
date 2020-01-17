@@ -13,19 +13,18 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
-  resources :textbooks
-    #get '/textbooks/new', to: 'textbooks#new'
-    post '/textbooks/new', to: 'textbooks#create'
-    #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook
-    #post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
-  resources :current_pages
-    #post '/current_pages/new' => 'current_pages#new'
-    #post '/current_pages', to: 'current_pages#create', as: "create_ride"  #making new path for attractions page 
-  resources :subjects
-    #get '/subjects/new', to: 'subjects#new'
+  resources :subjects do
+        #get '/subjects/new', to: 'subjects#new'
     #post '/subjects/new', to: 'subjects#create'
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one
+    resources :textbooks
+      #get '/textbooks/new', to: 'textbooks#new'
+      post '/textbooks/new', to: 'textbooks#create'
+      #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook
+     #post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
+  end
+
 
   #https://guides.rubyonrails.org/routing.html
 end
