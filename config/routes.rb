@@ -18,11 +18,13 @@ Rails.application.routes.draw do
     #post '/subjects/new', to: 'subjects#create'
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one
-    get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
-    get 'subjects/:id/textbooks/:id' to: 'subjects#textbook'
     resources :textbooks
       post '/textbooks/new', to: 'textbooks#create'
+    
+  get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
+  get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
   end
+
 
   resources :textbooks
       #get '/textbooks/new', to: 'textbooks#new'
