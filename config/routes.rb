@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
 
   resources :textbooks
+      post '/textbooks/new', to: 'textbooks#create'
+    
       #get '/textbooks/new', to: 'textbooks#new'
       #post '/textbooks/new', to: 'textbooks#create', as: 'create_textbook'
       #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook

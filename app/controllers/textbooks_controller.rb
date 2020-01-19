@@ -1,10 +1,10 @@
 class TextbooksController < ApplicationController
-    def index 
+    def index
         @user = User.find_by(id: session[:user_id])
-        if @user.admin
+        if params[:subject_id]
+            @textbooks = Subject.find(params[:subject_id]).textbooks
+        else
             @textbooks = Textbook.all
-        else 
-            redirect_to root_path
         end
     end
 
@@ -14,8 +14,9 @@ class TextbooksController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         if @user.admin
          @textbook = Textbook.new
-        else 
-         @textbooks = Textbook.all
+        else
+         flash[:message] = "Only Admins can make new textbooks"
+         redirect_to textbooks_path 
         end
     end
 
