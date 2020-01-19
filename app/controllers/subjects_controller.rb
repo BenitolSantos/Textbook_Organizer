@@ -48,6 +48,12 @@ class SubjectsController < ApplicationController
       render template: 'textbooks/show'
     end
 
+    def textbook_create
+      @author = Author.find(params[:id])
+      @post = Post.find(params[:id])
+      render template 'textbooks/create'
+    end
+
     private 
 
         def subject_params
