@@ -9,7 +9,7 @@
 
 <h1>Add new textbook</h1>
 
-<%= form_for :textbook do |f| %>
+<%= form_for :textbook, url: subject_textbooks_new_path do |f| %>
     Name: <%= f.text_field :title%>
     Description: <%= f.text_area :description %>
     Total Pages: <%= f.text_field :pages %>

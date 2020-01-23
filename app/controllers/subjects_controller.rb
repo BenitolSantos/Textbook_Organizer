@@ -37,26 +37,20 @@ class SubjectsController < ApplicationController
     end
 
     def textbooks_index 
-      @author = Author.find(params[:id])
-      @posts = @author.posts
+      @subject = subject.find(params[:id])
+      @textbooks = @subject.textbooks
       render template: 'textbooks/index'
     end
 
     def textbook 
-      @author = Author.find(params[:id])
-      @post = Post.find(params[:post_id])
+      @subject = Subject.find(params[:id])
+      @textbook = Textbook.find(params[:subject_id])
       render template: 'textbooks/show'
-    end
-
-    def textbook_create
-      @author = Author.find(params[:id])
-      @post = Post.find(params[:id])
-      render template 'textbooks/create'
     end
 
     private 
 
         def subject_params
-         params.require(:subject).permit(:name, :credits, :user_id, :attraction_id)
+         params.require(:subject).permit(:name)
         end
 end

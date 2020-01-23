@@ -15,12 +15,12 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   resources :subjects do
     #get '/subjects/new', to: 'subjects#new'
-    #post '/subjects/new', to: 'subjects#create'
+    #post '/subjects/new', to: 'subjects#create', as: :create_subject
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one
     post '/subjects/:id', to: 'textbooks#create'
     resources :textbooks
-      post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
+      post '/textbooks/new', to: 'textbooks#create'#, as: :create_textbook
     
   get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
   get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 
   resources :textbooks
-      post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
+      #post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
     
       #get '/textbooks/new', to: 'textbooks#new'
       #post '/textbooks/new', to: 'textbooks#create', as: 'create_textbook'

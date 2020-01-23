@@ -23,10 +23,10 @@ class TextbooksController < ApplicationController
     def create 
         @user = User.find_by(id: session[:user_id])
         if @user.admin
+         @subject = Subject.find_by(id: params[:subject_id])
          @textbook = Textbook.create(textbook_params)
-         @subject = Subject.new
         else
-         @textbook = Textbook.find_by(id: params[:id])
+         flash[:message] = "Only Admins can make new textbooks"
         end
         redirect_to user_path(@user)
     end
