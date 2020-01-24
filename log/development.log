@@ -13634,3 +13634,60 @@ Migrating to CreateUserSubjects (20191218214626)
   ↳ bin/rails:4
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2020-01-23 23:51:07 -0500
+Started GET "/rails/info/routes" for ::1 at 2020-01-23 23:51:07 -0500
+  [1m[35m (51.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 2088ms (Views: 1903.9ms | ActiveRecord: 0.0ms)
+
+
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [46 times] (349.1ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (53.9ms)
+  Rendered /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/railties-5.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (484.6ms)
+Completed 200 OK in 568ms (Views: 508.6ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/signin" for ::1 at 2020-01-24 00:10:14 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (65.4ms)
+Completed 200 OK in 602ms (Views: 537.2ms | ActiveRecord: 1.1ms)
+
+

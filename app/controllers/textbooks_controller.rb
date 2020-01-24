@@ -12,23 +12,29 @@ class TextbooksController < ApplicationController
     #and users take out books
     def new
         @user = User.find_by(id: session[:user_id])
-        if @user.admin
-         @textbook = Textbook.new
+        @subject = Subject.find_by(id: params[:subject_id])
+        if @user.admin   
+            if params[:subject_id]
+                @textbook = Textbook.new
+            end
         else
          flash[:message] = "Only Admins can make new textbooks"
-         redirect_to textbooks_path 
+         redirect_to subject_path(@subject) 
         end
     end
 
     def create 
         @user = User.find_by(id: session[:user_id])
+        @subject = Subject.find_by(id: params[:subject_id])
         if @user.admin
-         @subject = Subject.find_by(id: params[:subject_id])
          @textbook = Textbook.create(textbook_params)
+         @subject.textbooks << @textbook
+         @subject.save
+         redirect_to subject_path(@subject)
         else
          flash[:message] = "Only Admins can make new textbooks"
-        end
-        redirect_to user_path(@user)
+         redirect_to subject_path(@subject)
+        end  
     end
 
     def edit 
