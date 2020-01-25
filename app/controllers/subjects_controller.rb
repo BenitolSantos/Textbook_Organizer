@@ -48,6 +48,12 @@ class SubjectsController < ApplicationController
       render template: 'textbooks/show'
     end
 
+    def textbook_new 
+      @subject = Subject.find(params[:id])
+      @textbook = Textbook.find(params[:subject_id])
+      render template: 'textbooks/new'
+    end
+
     private 
 
         def subject_params

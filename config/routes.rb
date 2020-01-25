@@ -14,16 +14,16 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
   resources :subjects do
-    #get '/subjects/new', to: 'subjects#new'
+    get '/subjects/new', to: 'subjects#new'
     #post '/subjects/new', to: 'subjects#create', as: :create_subject
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one
-    post '/subjects/:id', to: 'textbooks#create'
+    #post '/subjects/:id', to: 'textbooks#create'
     resources :textbooks
       post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
-    
-  get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
-  get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
+      get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
+      get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
+      get 'subjects/:id/textbooks/new', to: 'subjects#textbook_new'
   end
 
   #note

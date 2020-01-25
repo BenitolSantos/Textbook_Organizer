@@ -24,6 +24,7 @@ class TextbooksController < ApplicationController
     end
 
     def create 
+        binding.pry
         @user = User.find_by(id: session[:user_id])
         @subject = Subject.find_by(id: params[:subject_id])
         if @user.admin
