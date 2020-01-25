@@ -13691,3 +13691,196 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 602ms (Views: 537.2ms | ActiveRecord: 1.1ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/subjects/1" for ::1 at 2020-01-24 22:37:43 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (12.9ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:29
+Completed 404 Not Found in 126ms (ActiveRecord: 13.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Subject with 'id'=1):
+  
+app/controllers/subjects_controller.rb:29:in `show'
+Started GET "/" for ::1 at 2020-01-24 22:37:52 -0500
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 974ms (Views: 971.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2020-01-24 22:37:58 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (116.5ms)
+  Rendered users/new.html.erb within layouts/application (160.5ms)
+Completed 200 OK in 316ms (Views: 200.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users" for ::1 at 2020-01-24 22:38:22 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/zMmTA/qH8wLJUlttZChtV4zTMt7OCHI2Wfmx8O5pZvxXxSUGeQ1XPfNxm1dO+BPmQir0ahG53U96SdGVUHxvQ==", "user"=>{"first_name"=>"admin", "last_name"=>"admin", "user_name"=>"admin", "age"=>"25", "email"=>"admin@gmail.com", "admin"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (16.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."user_name" = ? LIMIT ?[0m  [["user_name", "admin"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:16
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "user_name", "age", "email", "admin", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "admin"], ["last_name", "admin"], ["user_name", "admin"], ["age", 25], ["email", 0], ["admin", "t"], ["password_digest", "$2a$12$w6Fztax6CRmfv8Fref2/ie5/trKs7QxaFPcBBeIz.IXvkkCoDkryK"]]
+  ↳ app/controllers/users_controller.rb:16
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:16
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 327ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/users/1" for ::1 at 2020-01-24 22:38:23 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (9.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  Rendered users/show.html.erb within layouts/application (161.0ms)
+Completed 200 OK in 263ms (Views: 192.4ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/subjects/new" for ::1 at 2020-01-24 22:38:26 -0500
+Processing by SubjectsController#new as HTML
+  Rendering subjects/new.html.erb within layouts/application
+  Rendered subjects/_form.html.erb (3.6ms)
+  Rendered subjects/new.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 131ms (Views: 104.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/subjects" for ::1 at 2020-01-24 22:38:28 -0500
+Processing by SubjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QikO8YIFlpgz08//R46bWn7L910q2pDMBqbhp0mHh5g1ByggrdLs0Jj+dp/JxGtfWNeNprrUadRChPtF1Mz2jw==", "subject"=>{"name"=>"English"}, "commit"=>"Create Subject"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[36mSubject Create (3.4ms)[0m  [1m[32mINSERT INTO "subjects" ("name") VALUES (?)[0m  [["name", "English"]]
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/subjects_controller.rb:14
+  [1m[36mUserSubject Create (0.6ms)[0m  [1m[32mINSERT INTO "user_subjects" ("user_id", "subject_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["subject_id", 1], ["created_at", "2020-01-25 03:38:28.858438"], ["updated_at", "2020-01-25 03:38:28.858438"]]
+  ↳ app/controllers/subjects_controller.rb:14
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/subjects_controller.rb:14
+Redirected to http://localhost:3000/subjects/1
+Completed 302 Found in 58ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/subjects/1" for ::1 at 2020-01-24 22:38:28 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (0.8ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:30
+  Rendering subjects/show.html.erb within layouts/application
+  Rendered subjects/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"create", :controller=>"textbooks", :id=>"1"}, missing required keys: [:subject_id]):
+     9: 
+    10: <h1>Add new textbook</h1>
+    11: 
+    12: <%= form_for :textbook, url: subject_textbooks_new_path do |f| %>
+    13:     Name: <%= f.text_field :title%>
+    14:     Description: <%= f.text_area :description %>
+    15:     Total Pages: <%= f.text_field :pages %>
+  
+app/views/subjects/show.html.erb:12:in `_app_views_subjects_show_html_erb__2607256644538208128_21680'
+Started GET "/subjects/1" for ::1 at 2020-01-24 22:39:00 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:30
+  Rendering subjects/show.html.erb within layouts/application
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mTextbook Load (0.5ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ? LIMIT ?[0m  [["subject_id", 1], ["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Textbook Load (0.0ms)[0m  [1m[34mSELECT  "textbooks".* FROM "textbooks" LIMIT ?[0m  [["LIMIT", 11]]
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  Rendered subjects/show.html.erb within layouts/application (617.4ms)
+Completed 500 Internal Server Error in 978ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `textbooks_new_path' for #<#<Class:0x00007fd5143f3108>:0x00007fd5103c4320>
+Did you mean?  textbooks_path
+               textbook_path):
+     9: 
+    10: <h1>Add new textbook</h1>
+    11: 
+    12: <%= form_for :textbook, url: textbooks_new_path do |f| %>
+    13:     Name: <%= f.text_field :title%>
+    14:     Description: <%= f.text_area :description %>
+    15:     Total Pages: <%= f.text_field :pages %>
+  
+app/views/subjects/show.html.erb:12:in `_app_views_subjects_show_html_erb__2607256644538208128_22200'
+Started GET "/subjects/1" for ::1 at 2020-01-24 22:39:13 -0500
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/subjects_controller.rb:30
+  Rendering subjects/show.html.erb within layouts/application
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 1]]
+  ↳ app/views/subjects/show.html.erb:22
+  Rendered subjects/show.html.erb within layouts/application (197.5ms)
+Completed 200 OK in 886ms (Views: 879.0ms | ActiveRecord: 0.7ms)
+
+
