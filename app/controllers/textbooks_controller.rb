@@ -23,8 +23,7 @@ class TextbooksController < ApplicationController
         end
     end
 
-    def create 
-        binding.pry
+    def create
         @user = User.find_by(id: session[:user_id])
         @subject = Subject.find_by(id: params[:subject_id])
         if @user.admin
@@ -79,6 +78,6 @@ class TextbooksController < ApplicationController
     private 
 
         def textbook_params
-         params.require(:textbook).permit(:title,:description,:pages,:cost)
+         params.require(:textbook).permit(:title,:description,:pages,:cost, :subject_id)
         end
 end
