@@ -14835,3 +14835,55 @@ Completed 500 Internal Server Error in 20354ms (ActiveRecord: 0.7ms)
 NoMethodError (undefined method `textbooks' for nil:NilClass):
   
 app/controllers/textbooks_controller.rb:32:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/" for ::1 at 2020-01-31 15:13:39 -0500
+  [1m[35m (24.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (27.7ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+    1: <%= link_to "Sign Up",  new_user_path(@user)%>
+    2: <% if session[:user_id] %>
+    3:   <h1><%= @user.user_name %></h1>
+    4:   <h2>Email: <%= @user.email %></h2>
+    5: <% else %>
+    6:   <%= link_to 'Log in with Facebook!', '/auth/facebook' %>
+  
+app/views/static/home.html.erb:3:in `_app_views_static_home_html_erb___3074842786108723008_20880'
+app/controllers/static_controller.rb:3:in `home'
+Started GET "/" for ::1 at 2020-01-31 15:14:15 -0500
+Processing by StaticController#home as HTML
+  Rendering static/home.html.erb within layouts/application
+  Rendered static/home.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= link_to "Sign Up",  new_user_path(@user)%>
+    2: <% if session[:user_id] %>
+    3:   <h1><%= @user.name %></h1>
+    4:   <h2>Email: <%= @user.email %></h2>
+    5: <% else %>
+    6:   <%= link_to 'Log in with Facebook!', '/auth/facebook' %>
+  
+app/views/static/home.html.erb:3:in `_app_views_static_home_html_erb___3074842786108723008_21420'
+app/controllers/static_controller.rb:3:in `home'

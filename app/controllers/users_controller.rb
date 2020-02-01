@@ -1,6 +1,10 @@
 
 require 'pry'
 class UsersController < ApplicationController 
+    def home
+        render :home
+    end
+
     def new
         @user = User.new
     end
@@ -46,6 +50,10 @@ class UsersController < ApplicationController
     end
 
     private
+
+    def auth
+        request.env['omniauth.auth']
+    end
 
     def user_params
         #remember to put everything in permit
