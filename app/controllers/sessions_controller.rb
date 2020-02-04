@@ -1,3 +1,4 @@
+require 'pry'
 class SessionsController < ApplicationController  
     def new
      @user = User.new
@@ -5,9 +6,9 @@ class SessionsController < ApplicationController
     end
 
     def create
+      binding.pry
       if user_params[:user_name]
       @user = User.find_by(:user_name => user_params[:user_name])
-      #binding.pry
       elsif auth['uid']
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
           u.user_name = auth['info']['name']
@@ -36,7 +37,8 @@ class SessionsController < ApplicationController
 
     private
 
-    def auth 
+    def auth
+      binding.pry
       request.env['omniauth.auth']
     end
 

@@ -2,7 +2,10 @@
 require 'pry'
 class UsersController < ApplicationController 
     def home
-        render :home
+        #based on what dustin said, this was better than a static home
+        if session[:user_id]
+            @user = User.find(session[:user_id])
+        end
     end
 
     def new

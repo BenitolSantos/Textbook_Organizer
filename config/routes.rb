@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
+  get '/auth/facebook/callback' => 'sessions#create'
+  
   resources :subjects do
     get '/subjects/new', to: 'subjects#new'
     #post '/subjects/new', to: 'subjects#create', as: :create_subject
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
       get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
       get 'subjects/:id/textbooks/new', to: 'subjects#textbook_new'
   end
-
   #note
 
   resources :textbooks
