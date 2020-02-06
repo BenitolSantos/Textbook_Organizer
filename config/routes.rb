@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#fb_create'
   
   resources :subjects do
     get '/subjects/new', to: 'subjects#new'
