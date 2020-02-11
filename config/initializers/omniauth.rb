@@ -10,4 +10,4 @@ end
 #don't push with master.key remember to move to desktop after each use.
 
 
-The master key is now needed when using the app to hide the key and secret
+#The master key is now needed when using the app to hide the key and secret

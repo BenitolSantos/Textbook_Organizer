@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_12_18_214626) do
     t.string "last_name"
     t.string "user_name"
     t.integer "age"
+    t.string "image"
+    t.string "uid"
     t.integer "email"
     t.boolean "admin", default: false
     t.string "password_digest"
