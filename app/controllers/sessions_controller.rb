@@ -1,3 +1,4 @@
+require 'securerandom'
 require 'pry'
 class SessionsController < ApplicationController  
     def new
@@ -22,17 +23,32 @@ class SessionsController < ApplicationController
 
 
     def fb_create #Ayana suggested a second create path for facebook since it's so different
-      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+       #put this as a method in the user model
+      #or if statement the User and save
+      
+      @user = User.find_by(uid: auth['uid']) 
+        #its failing due to lack of password. but because its creating authenticating through facebook, 
+        #you don't need to make a password. just set a random string permanently as the password - alice
+      if @user
+        @user = User.find_by(uid: auth['uid']) do |u|
+          u.user_name = auth['info']['name']
+          u.email = auth['info']['email']
+          u.image = auth['info']['image']
+        end
+      else
+        @user = User.create(uid: auth['uid']) do |u|
         u.user_name = auth['info']['name']
         u.email = auth['info']['email']
         u.image = auth['info']['image']
-      end 
+        u.password = SecureRandom.alphanumeric
+        end
+      end
       session[:user_id] = @user.id 
       if session[:user_id]
       redirect_to user_path(@user)
       else 
         flash[:message] = "Authentication Error. Try again!"
-        ridirect_to new_user_path(@user)
+        redirect_to new_user_path(@user)
       end
     end
 
