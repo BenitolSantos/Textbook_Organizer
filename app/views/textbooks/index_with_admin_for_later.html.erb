@@ -1,0 +1,15 @@
+<h1>Textbooks:</h1>
+<% if @user.admin %>
+    <%=link_to "New Textbook", new_textbook_path %>
+<% end %>
+
+<% @textbooks.each do |textbook| %>
+    Title: <%= textbook.title %>
+    <% if @user.admin %>
+        <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
+    <% else %>
+        <%= link_to "Add #{textbook.title}", textbook_path(textbook) %>
+    <% end %>
+<% end%>
+
+<h1>for admin implementation later because we wanna  MVP minimal viable product.</h1>

@@ -1,0 +1,8 @@
+ 
+  <%= @textbook.title %>
+
+ <% if @user.admin %>
+        <%=link_to "Edit Textbook", edit_textbook_path(@textbook) %>
+  <% end %>
+
+

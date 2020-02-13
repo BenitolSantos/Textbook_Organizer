@@ -5,10 +5,7 @@
 
 <% @textbooks.each do |textbook| %>
     Title: <%= textbook.title %>
-    <% if @user.admin %>
-        <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
-    <% else %>
-        <%= link_to "Add #{textbook.title}", textbook_path(textbook) %>
-    <% end %>
+    <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
+    <%= link_to "Add #{textbook.title}", textbook_path(textbook) %>
 <% end%>
 
