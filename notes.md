@@ -1,7 +1,7 @@
 ##### _Hey there, here is an example notes.md set up_ 😊
 
 # App Summary
-My app idea is _`Textbook Library`_. It will be a library that stores users and textbooks and the current_pages the users are on. 
+My app idea is _`Textbook Library`_. It will be a library that stores users and textbooks. 
 
 # Schema
 ### User
