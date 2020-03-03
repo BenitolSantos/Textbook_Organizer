@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     def create #byebug is bad
         #use pry
         @user = User.find_by(:user_name => user_params[:user_name])
-
         if @user 
             flash[:message] = "Username already taken"
             redirect_to new_user_path
