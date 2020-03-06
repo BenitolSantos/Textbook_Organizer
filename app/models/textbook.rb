@@ -2,8 +2,8 @@ class Textbook < ActiveRecord::Base
   belongs_to :subject
   validates :title, presence: true
 
-  scope :expensive, where("cost > ?", 300)
-  scope :inexpensive, where("cost < ?", 300)
+  scope :inexpensive, -> { where("cost <= 100") }
+  scope :expensive, -> { where("cost > 100") }
 
-  #fix the scope method it doesn't work
+  #fix the scope method it doesn't work.
 end

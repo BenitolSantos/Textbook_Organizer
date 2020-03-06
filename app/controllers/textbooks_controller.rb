@@ -10,41 +10,44 @@ class TextbooksController < ApplicationController
 
     #we're going to only let admins be able to create books
     #and users take out books
+    #changed due to mvp and time crunch
     def new
         @user = User.find_by(id: session[:user_id])
         @subject = Subject.find_by(id: params[:subject_id])
-        if @user.admin   
-            if params[:subject_id]
-                @textbook = Textbook.new
-            end
-        else
+        #if @user.admin   
+        if params[:subject_id]
+            @textbook = Textbook.new
+        end
+        #else
          flash[:message] = "Only Admins can make new textbooks"
          redirect_to subject_path(@subject) 
-        end
+        #end
     end
 
     def create
         @user = User.find_by(id: session[:user_id])
         @subject = Subject.find_by(id: params[:subject_id])
-        if @user.admin
+        #if @user.admin
          @textbook = Textbook.create(textbook_params)
          @subject.textbooks << @textbook
          @subject.save
+         @inexpensive_textbook = Book.inexpensive
+         @expensive_textbook = Book.inexpensive
          redirect_to subject_path(@subject)
-        else
-         flash[:message] = "Only Admins can make new textbooks"
-         redirect_to subject_path(@subject)
-        end  
+        #else
+         #flash[:message] = "Only Admins can make new textbooks"
+         #redirect_to subject_path(@subject)
+        #end  
     end
 
     def edit 
         @user = User.find_by(id: session[:user_id]) 
-        if @user.admin
+        #if @user.admin
             @textbook = Textbook.find(params[:id])
-        else 
-            flash[:message] = "Only admins can edit books"
-            ridirect_to textbooks_path
-        end
+       # else 
+        #    flash[:message] = "Only admins can edit books"
+            #ridirect_to textbooks_path
+        #end
     end
 
     def update
@@ -61,15 +64,15 @@ class TextbooksController < ApplicationController
 
     def destroy
         @user = User.find_by(id: session[:user_id])
-        if @user.admin #delete from all textbooks
+        #if @user.admin #delete from all textbooks
           @textbook = Textbook.find(params[:id])
           @textbook.destroy
-        else #delete from student's list of textbooks
-          @user.subjects.each do |subject|
-            @textbook = subject.textbooks.find(textbook_id: params[:id])
-            @textbook.destroy
-          end
-        end
+        #else #delete from student's list of textbooks
+         # @user.subjects.each do |subject|
+          #  @textbook = subject.textbooks.find(textbook_id: params[:id])
+           # @textbook.destroy
+          #end
+        #end
         redirect_to textbooks_path
     end
 
