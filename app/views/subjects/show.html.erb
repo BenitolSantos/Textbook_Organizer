@@ -8,22 +8,12 @@
   <% end %>
 
 <h1>Add new textbook</h1>
-
-<%= form_for :textbook, url: textbooks_path do |f| %>
-    Name: <%= f.text_field :title%>
-    Description: <%= f.text_area :description %>
-    Total Pages: <%= f.text_field :pages %>
-    Book Price: <%= f.text_field :cost %>
-    <% f.hidden_field :subject_id %>
-    <%= f.submit %>
-<% end %>
+<%=link_to "Add #{textbook.title}", new_textbook_path(textbook) %>
 
 
 Textbook List
 <% @subject.textbooks.each do |textbook| %>
     Title: <%= textbook.title %>
-    <% if @user.admin %>
-        <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
-    <% end %>
+    <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
 <% end%>
 

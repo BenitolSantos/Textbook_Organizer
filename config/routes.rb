@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#fb_create'
   
   resources :subjects do
-    get '/subjects/new', to: 'subjects#new'
+    #get '/subjects/new', to: 'subjects#new'
     #post '/subjects/new', to: 'subjects#create', as: :create_subject
     #get '/subjects/:id/edit', to: 'subjects#edit', as: :edit_textbook
     #post '/subjects/:id/edit', to: 'subjects#update' #patch wasn't needed for this one

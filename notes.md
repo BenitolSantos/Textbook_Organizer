@@ -12,8 +12,20 @@ first_name | string
 last_name  | string
 user_name  | string
 age        | integer
-email      | string
+image      | string
+uid        | string
+email      | integer
+admin      | integer
 <br>
+
+### User_Subject
+
+attribute   | attribute type
+---------   | :-------------:
+user_id       | integer
+subject_id    | integer
+<br>
+
 
 ### Subject
 
@@ -34,15 +46,11 @@ title       | string
 description | string
 body        | string
 pages       | integer
-user_id     | integer
-page_id 	  | integer
+cost        | integer
+subject_id  | integer
 <br>
 
-### Current_page
-attribute   | attribute type
----------   | :-------------:
-page_number | integer
-chapter_num | integer
+
 
 
 
@@ -135,14 +143,14 @@ https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-assoc
 - [X] Include logout
   <br>
 
-- [] Include third party signup/login
+- [X] Include third party signup/login
   <br>
 
-- [] Include nested resource show or index (routes.erb 
+- [X] Include nested resource show or index (routes.erb 
   * URL e.g. categories/3/posts -> class/3/textbooks/
   <br>
 
-- [] Include nested resource "new" form ()
+- [X] Include nested resource "new" form ()
   * URL e.g. categories/7/posts/new)
   <br>
 
