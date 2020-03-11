@@ -1,8 +1,5 @@
 <h1>Subjects:</h1>
-<% if @user.admin %>
     <%=link_to "New Subject", new_subject_path %>
-<% end %>
-
 
 
 <% @subjects.each do |subject| %>

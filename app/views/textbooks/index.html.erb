@@ -1,7 +1,6 @@
 <h1>Textbooks:</h1>
-<% if @user.admin %>
-    <%=link_to "New Textbook", new_textbook_path %>
-<% end %>
+<%=link_to "New Textbook", subjects_path %>
+
 
 <% @textbooks.each do |textbook| %>
     Title: <%= textbook.title %>
