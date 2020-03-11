@@ -1,13 +1,14 @@
 <h1>Subjects:</h1>
     <%=link_to "New Subject", new_subject_path %>
 
-
+<ol>
 <% @subjects.each do |subject| %>
+    <br>
+    <li>
     Title: <%= subject.name %>
-    <% if @user.admin %>
-        <%=link_to "Show #{subject.name}", subject_path(subject) %>
-    <% else %>
-        <%= link_to "Go on #{subject.name}", subject_path(subject) %>
-    <% end %>
+    <%= link_to "Go on #{subject.name}", subject_path(subject) %>
+    </li>
+    <br>
 <% end%>
+</ol>
 

@@ -19,8 +19,8 @@ class TextbooksController < ApplicationController
             @textbook = Textbook.new
         end
         #else
-         flash[:message] = "Only Admins can make new textbooks"
-         redirect_to subject_path(@subject) 
+         #flash[:message] = "Only Admins can make new textbooks"
+         #redirect_to subject_path(@subject) 
         #end
     end
 
@@ -31,8 +31,8 @@ class TextbooksController < ApplicationController
          @textbook = Textbook.create(textbook_params)
          @subject.textbooks << @textbook
          @subject.save
-         @inexpensive_textbook = Book.inexpensive
-         @expensive_textbook = Book.inexpensive
+         @inexpensive_textbook = Textbook.inexpensive
+         @expensive_textbook = Textbook.expensive
          redirect_to subject_path(@subject)
         #else
          #flash[:message] = "Only Admins can make new textbooks"
@@ -52,6 +52,7 @@ class TextbooksController < ApplicationController
 
     def update
         @textbook = Textbook.find(params[:id])
+        redirect_to textbook_path(@textbook)
     end
 
     def show 

@@ -1,16 +1,16 @@
-<%= @subject.name %>
-<%=link_to "Edit Subject", edit_subject_path(@subject) %>
+  <%= @subject.name %>
+
+ <% if @user.admin %>
+        <%=link_to "Edit Subject", edit_subject_path(@subject) %>
+  <% end %>
+
 <h1>Add new textbook</h1>
 <%=link_to "Add new textbook", new_subject_textbook_path(@subject)%>
 
 
 Textbook List
-<ol>
 <% @subject.textbooks.each do |textbook| %>
     Title: <%= textbook.title %>
-    <br><li>
     <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
-    </li><br>
 <% end%>
-</ol>
 

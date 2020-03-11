@@ -21,8 +21,12 @@ class SubjectsController < ApplicationController
     end
 
     def update
+      binding.pry
       @user = User.find_by(id: session[:user_id])
-     @subject = Subject.find(params[:id])
+      @subject = Subject.find(params[:id])
+      @subject.name = params["subject"][:name]
+      @subject.save
+      redirect_to subject_path(@subject)
     end
 
     def show 
@@ -49,8 +53,10 @@ class SubjectsController < ApplicationController
     end
 
     def textbook_new 
-      @subject = Subject.find(params[:id])
-      @textbook = Textbook.find(params[:subject_id])
+      @subject = Subject.find_by(id: params[:id])
+      @subject.textbook.new
+      #https://apidock.com/rails/ActiveRecord/Associations/CollectionProxy/create
+      #alice helped with this one, it keeps the association
       render template: 'textbooks/new'
     end
 
