@@ -1,6 +1,16 @@
  
+  <h1>Title:</h1>
   <%= @textbook.title %>
-
+  <br>
+  <h1>Description:</h1>
+  <%= @textbook.description %>
+  <br>
+  <h1>Price:</h1>
+  <%= @textbook.cost %>
+  <br>
+  <h1>How many pages:</h1>
+  <%= @textbook.pages %>
+  <br>
   <%=link_to "Edit Textbook", edit_textbook_path(@textbook) %>
 
 
