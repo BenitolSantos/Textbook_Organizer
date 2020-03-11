@@ -52,6 +52,8 @@ class TextbooksController < ApplicationController
 
     def update
         @textbook = Textbook.find(params[:id])
+        @textbook.update(description: params[:textbook][:name], pages: params[:textbook][:pages], description: params[:textbook][:description], cost: params[:textbook][:cost])
+        @textbook.save
         redirect_to textbook_path(@textbook)
     end
 

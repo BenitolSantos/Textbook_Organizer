@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
       get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
       get 'subjects/:id/textbooks/new', to: 'subjects#textbook_new'
+      get 'subjects/textbooks/:id/edit', to: 'subjects#textbook_edit'
+      post '/textbooks/:id/edit', to: 'subject#textbook_update'
   end
   
 
@@ -34,8 +36,8 @@ Rails.application.routes.draw do
     
       #get '/textbooks/new', to: 'textbooks#new'
       #post '/textbooks/new', to: 'textbooks#create', as: 'create_textbook'
-      #get '/textbooks/:id/edit', to: 'textbooks#edit', as: :edit_textbook
-     #post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
+     get '/textbooks/:id/edit', to: 'textbooks#edit'#, as: :edit_textbook
+     post '/textbooks/:id/edit', to: 'textbooks#update' #patch wasn't needed for this one
 
 
   #https://guides.rubyonrails.org/routing.html

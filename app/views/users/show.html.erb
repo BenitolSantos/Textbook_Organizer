@@ -2,18 +2,18 @@
 <%= @user.admin ? "ADMIN": "" %>
 
 Name: <%= @user.first_name %> <%= @user.last_name %>
-
+<br>
 Username: <%= @user.user_name %>
-
+<br>
 Age: <%= @user.age %>
-
+<br>
 Email: <%= @user.email %>
-
+<br>
 <% if @user.admin %>
 <%=link_to "Create new subject", new_subject_path(@subject)%>
 <% end %>
 
- <%=link_to "All subjects", subjects_path(@subject) %>
+ <h1><%=link_to "Subjects", subjects_path(@subject) %></h1>
 <% @user.subjects.each do |subject| %>
     Title: <%= subject.name %>
     <%=link_to "Edit #{subject.name}", subject_path(subject) %>
@@ -25,6 +25,6 @@ Email: <%= @user.email %>
     <% end%>
 <% end%>
 
-<%= link_to "Delete User",  delete_user_path, :method => 'delete' %>
-<%= link_to "Log Out",  signout_path %>
-<%= link_to "Textbooks", textbooks_path %>
+<h1><%= link_to "Delete User",  delete_user_path, :method => 'delete' %></h1>
+<h1><%= link_to "Log Out",  signout_path %></h1>
+<h1><%= link_to "Textbooks", textbooks_path %></h1>
