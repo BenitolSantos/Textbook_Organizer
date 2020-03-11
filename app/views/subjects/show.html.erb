@@ -1,6 +1,3 @@
- 
-
-
   <%= @subject.name %>
 
  <% if @user.admin %>
@@ -8,7 +5,7 @@
   <% end %>
 
 <h1>Add new textbook</h1>
-<%=link_to "Add #{textbook.title}", new_textbook_path(textbook) %>
+<%=link_to "Add #{textbook.title}", new_subject_textbook_path(@textbook) %>
 
 
 Textbook List

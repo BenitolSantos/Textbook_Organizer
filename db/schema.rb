@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_12_18_214626) do
     t.string "image"
     t.string "uid"
     t.integer "email"
-    t.boolean "admin", default: false #keep as hidden field for later Dustin (2/13/2020) said remove admins altogether MVP minimal viable product. Make subjects for everyone so facebook omniauth can work
+    t.boolean "admin", default: false
     t.string "password_digest"
   end
 

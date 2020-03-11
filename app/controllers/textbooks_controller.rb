@@ -55,7 +55,7 @@ class TextbooksController < ApplicationController
     end
 
     def show 
-        @textbook = Textbook.find(params[:id])
+        @textbook = Textbook.find_or_create_by(id: params[:id])
         @user = User.find_by(id: session[:user_id])
         #nested form renders current page views useless.
         #also more DRY and simple.
