@@ -19996,3 +19996,62 @@ ActionView::Template::Error (undefined method `name' for #<Textbook:0x00007feb4d
 app/views/users/show.html.erb:22:in `block (2 levels) in _app_views_users_show_html_erb___2037758948124977686_35460'
 app/views/users/show.html.erb:21:in `block in _app_views_users_show_html_erb___2037758948124977686_35460'
 app/views/users/show.html.erb:17:in `_app_views_users_show_html_erb___2037758948124977686_35460'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/auth/facebook/" for ::1 at 2020-03-12 16:42:52 -0400
+Started GET "/auth/facebook/" for ::1 at 2020-03-12 16:42:52 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/auth/facebook/" for ::1 at 2020-03-12 16:42:53 -0400
+Started GET "/auth/facebook/callback?code=AQBUAi-boFvqsh7WPFShZMkdnP43mldHV6kaIZN2u8bayCJXYjlyNsGXSgW9gumrhHHD0Cms9dY0LzMwVLRmYjWFTmz0Tt_igoFD_DWnzIxizVCYphI3u-GJaonXkbrc4-PGssKX0LbijQzqnla1t3895n_jux6RRtSzlXFACg23r230hLfYrESa04Q7ODHANOBGE-l4kGbHVrXp0aKrAHvfaEGjoQ06N76JncWwhGB_a-GSXtAbia6D0vWjGi6a-INzDEVE7xL5gp6s4G1iSkYKfDvpYHUrhpQSPE1OhzexNNe0pjPaPYhkQ1VtbIOlGU1vTmgP5ZmzhsuClakmxDbdvMxTKPLLSG0oHGPvkUCP8g&state=c06b281ddaed5e5573de1c88b6ef97c9f017d0d0c582c868" for ::1 at 2020-03-12 16:42:53 -0400
+Processing by SessionsController#fb_create as HTML
+  Parameters: {"code"=>"AQBUAi-boFvqsh7WPFShZMkdnP43mldHV6kaIZN2u8bayCJXYjlyNsGXSgW9gumrhHHD0Cms9dY0LzMwVLRmYjWFTmz0Tt_igoFD_DWnzIxizVCYphI3u-GJaonXkbrc4-PGssKX0LbijQzqnla1t3895n_jux6RRtSzlXFACg23r230hLfYrESa04Q7ODHANOBGE-l4kGbHVrXp0aKrAHvfaEGjoQ06N76JncWwhGB_a-GSXtAbia6D0vWjGi6a-INzDEVE7xL5gp6s4G1iSkYKfDvpYHUrhpQSPE1OhzexNNe0pjPaPYhkQ1VtbIOlGU1vTmgP5ZmzhsuClakmxDbdvMxTKPLLSG0oHGPvkUCP8g", "state"=>"c06b281ddaed5e5573de1c88b6ef97c9f017d0d0c582c868"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "3068964076479997"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "3068964076479997"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 119ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1" for ::1 at 2020-03-12 16:42:55 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.3ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mTextbook Load (0.3ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 2]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (107.1ms)
+Completed 500 Internal Server Error in 191ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Textbook:0x00007fba84990c28>):
+    19:     <%=link_to "Edit #{subject.name}", subject_path(subject) %>
+    20:     <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
+    21:         <% subject.textbooks.each do |textbook| %>
+    22:         Title: <%= textbook.name %>
+    23:         <%=link_to "Add #{textbook.title}", new_subject_path(subject) %>
+    24:         <%=link_to "Edit #{textbook.title}", subject_path(subject) %>
+    25:     <% end%>
+  
+app/views/users/show.html.erb:22:in `block (2 levels) in _app_views_users_show_html_erb___4301238082283329168_22200'
+app/views/users/show.html.erb:21:in `block in _app_views_users_show_html_erb___4301238082283329168_22200'
+app/views/users/show.html.erb:17:in `_app_views_users_show_html_erb___4301238082283329168_22200'

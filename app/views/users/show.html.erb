@@ -19,7 +19,7 @@ Email: <%= @user.email %>
     <%=link_to "Edit #{subject.name}", subject_path(subject) %>
     <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
         <% subject.textbooks.each do |textbook| %>
-        Title: <%= textbook.name %>
+        Title: <%= textbook.title %>
         <%=link_to "Add #{textbook.title}", new_subject_path(subject) %>
         <%=link_to "Edit #{textbook.title}", subject_path(subject) %>
     <% end%>
