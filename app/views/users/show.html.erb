@@ -13,17 +13,26 @@ Email: <%= @user.email %>
 <%=link_to "Create new subject", new_subject_path(@subject)%>
 <% end %>
 
- <h1><%=link_to "Subjects", subjects_path(@subject) %></h1>
+ <h1>Subjects</h1>
+ <br>
+ 
+<ol>
+</li>
 <% @user.subjects.each do |subject| %>
     Title: <%= subject.name %>
-    <%=link_to "Edit #{subject.name}", subject_path(subject) %>
-    <%=link_to "Add #{subject.name}", new_subject_path(subject) %>
+    <%=link_to "#{subject.name}", subject_path(subject) %>
         <% subject.textbooks.each do |textbook| %>
         Title: <%= textbook.title %>
-        <%=link_to "Add #{textbook.title}", new_subject_path(subject) %>
-        <%=link_to "Edit #{textbook.title}", subject_path(subject) %>
+        <ol>
+        <li>
+        <%=link_to "#{textbook.title}", subject_path(subject) %>
+        </li>
+        </ol>
     <% end%>
 <% end%>
+</li>
+<%=link_to "Add a new subject / All Subjects", subjects_path(@subject) %>
+</ol>
 
 <h1><%= link_to "Delete User",  delete_user_path, :method => 'delete' %></h1>
 <h1><%= link_to "Log Out",  signout_path %></h1>
