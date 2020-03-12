@@ -5,7 +5,9 @@ class UsersController < ApplicationController
         #based on what dustin said, this was better than a static home
         if session[:user_id]
             @user = User.find_or_create_by(id: session[:user_id])
+            redirect_to user_path(@user)
             #changed from find_by to find_or_create_by to crashing from home
+        else
         end
     end
 

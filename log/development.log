@@ -20055,3 +20055,112 @@ ActionView::Template::Error (undefined method `name' for #<Textbook:0x00007fba84
 app/views/users/show.html.erb:22:in `block (2 levels) in _app_views_users_show_html_erb___4301238082283329168_22200'
 app/views/users/show.html.erb:21:in `block in _app_views_users_show_html_erb___4301238082283329168_22200'
 app/views/users/show.html.erb:17:in `_app_views_users_show_html_erb___4301238082283329168_22200'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from instance_eval at /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activesupport-5.2.3/lib/active_support/lazy_load_hooks.rb:71)
+Started GET "/auth/facebook/" for ::1 at 2020-03-12 16:44:35 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/benitolsantos/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Started GET "/auth/facebook/" for ::1 at 2020-03-12 16:44:35 -0400
+Started GET "/auth/facebook/callback?code=AQCYO0Dd2Z5NnBwd5CJq6gBRj57SRs4bH65Z5jdG0cGiJfu8-yre0ItzSNaxi2Kft0kXU_hse3CKqspCCymVMzMymWDYJRGaer4oJJw4PT-fnwT9fgCE56Q7nDAMzSdmyY7H84dV5kVx2e1tTMv-6jEJQoy5LQMxbd_3QPhqVY6-rxNCegK-4ScHMl_8UNmPAofadDxIIwjCh7MIcBv37rowgUzCF0zzupMYgTQO5happ7RGoiQBJLVra8Xc3Z5IycEREme29auypZOVerEptKoaS3SSxatycSpORCNav2CrQvRmrqzT562t0OOKjcl1agSnVeq8_mJFs9GMVaOFUN1-lwzVQ6VOktoq7ueeT3vkkQ&state=21d99d638b0ea97f4b70f65b0ba42feee2d23c23f16e0b6b" for ::1 at 2020-03-12 16:44:35 -0400
+Processing by SessionsController#fb_create as HTML
+  Parameters: {"code"=>"AQCYO0Dd2Z5NnBwd5CJq6gBRj57SRs4bH65Z5jdG0cGiJfu8-yre0ItzSNaxi2Kft0kXU_hse3CKqspCCymVMzMymWDYJRGaer4oJJw4PT-fnwT9fgCE56Q7nDAMzSdmyY7H84dV5kVx2e1tTMv-6jEJQoy5LQMxbd_3QPhqVY6-rxNCegK-4ScHMl_8UNmPAofadDxIIwjCh7MIcBv37rowgUzCF0zzupMYgTQO5happ7RGoiQBJLVra8Xc3Z5IycEREme29auypZOVerEptKoaS3SSxatycSpORCNav2CrQvRmrqzT562t0OOKjcl1agSnVeq8_mJFs9GMVaOFUN1-lwzVQ6VOktoq7ueeT3vkkQ", "state"=>"21d99d638b0ea97f4b70f65b0ba42feee2d23c23f16e0b6b"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "3068964076479997"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "3068964076479997"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:33
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 37ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1" for ::1 at 2020-03-12 16:44:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mTextbook Load (0.1ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 2]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 757ms (Views: 741.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2020-03-12 16:45:05 -0400
+Processing by UsersController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+  Rendering users/home.erb within layouts/application
+  Rendered users/home.erb within layouts/application (1.2ms)
+Completed 200 OK in 196ms (Views: 191.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-12 16:46:14 -0400
+Processing by UsersController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 232ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/1" for ::1 at 2020-03-12 16:46:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.4ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 2]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (72.1ms)
+Completed 200 OK in 265ms (Views: 163.7ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-12 16:46:17 -0400
+Processing by UsersController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for ::1 at 2020-03-12 16:46:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mSubject Load (0.2ms)[0m  [1m[34mSELECT "subjects".* FROM "subjects" INNER JOIN "user_subjects" ON "subjects"."id" = "user_subjects"."subject_id" WHERE "user_subjects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mTextbook Load (0.2ms)[0m  [1m[34mSELECT "textbooks".* FROM "textbooks" WHERE "textbooks"."subject_id" = ?[0m  [["subject_id", 2]]
+  ↳ app/views/users/show.html.erb:21
+  Rendered users/show.html.erb within layouts/application (56.4ms)
+Completed 200 OK in 120ms (Views: 116.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signout" for ::1 at 2020-03-12 16:46:21 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-12 16:46:21 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.erb within layouts/application
+  Rendered users/home.erb within layouts/application (0.8ms)
+Completed 200 OK in 88ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
