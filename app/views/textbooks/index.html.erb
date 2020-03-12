@@ -4,9 +4,7 @@
 <ol>
 <% @textbooks.each do |textbook| %>
     <br>
-    <li> Title: <%= textbook.title %>
-    <%=link_to "Edit #{textbook.title}", textbook_path(textbook) %>
-    <%= link_to "Add #{textbook.title}", textbook_path(textbook) %>
+    <li> Title: <%= link_to "#{textbook.title}", textbook_path(textbook) %>
     </li>
     <br>
 <% end%>
