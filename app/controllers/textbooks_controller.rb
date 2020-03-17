@@ -8,6 +8,13 @@ class TextbooksController < ApplicationController
         end
     end
 
+    def result 
+        #binding.pry PRY IS HELPFUL
+        @textbook = Textbook.find_by(title: params[:textbook_result][:title])
+        @textbook_results = []
+        @textbook_results << @textbook
+    end
+
     #we're going to only let admins be able to create books
     #and users take out books
     #changed due to mvp and time crunch
@@ -33,6 +40,7 @@ class TextbooksController < ApplicationController
          @subject.save
          @inexpensive_textbook = Textbook.inexpensive
          @expensive_textbook = Textbook.expensive
+         #show expensive or inexpensive on the show page
          redirect_to subject_path(@subject)
         #else
          #flash[:message] = "Only Admins can make new textbooks"
@@ -60,6 +68,13 @@ class TextbooksController < ApplicationController
     def show 
         @textbook = Textbook.find_or_create_by(id: params[:id])
         @user = User.find_by(id: session[:user_id])
+        @inexpensive_textbook = Textbook.inexpensive
+        @expensive_textbook = Textbook.expensive
+        #if Textbook.expensive.include(@textbook)
+
+        #elsif Textbook.expensive.include(@textbook)
+
+        #end
         #nested form renders current page views useless.
         #also more DRY and simple.
         #no conditionals for seperate current_page views

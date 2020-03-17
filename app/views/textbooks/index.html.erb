@@ -1,6 +1,11 @@
 <h1>Textbooks:</h1>
 <%=link_to "New Textbook", subjects_path %>
 
+<%= form_for :textbook_result, :url => textbook_result_path(@textbook) do |f| %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+<% end %>
+
 <ol>
 <% @textbooks.each do |textbook| %>
     <br>

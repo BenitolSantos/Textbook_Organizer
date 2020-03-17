@@ -51,6 +51,18 @@ class SubjectsController < ApplicationController
       render template: 'textbooks/show'
     end
 
+    def textbook_index #this was needed because textbooks is linked to subject
+      @subject = Subject.find_by(id: params[:id])
+      @textbooks = @subject.textbook.all
+      render template: 'textbooks/index'
+    end
+
+    def textbook_result #this was needed because textbooks is linked to subject
+      @subject = Subject.find_by(id: params[:id]) 
+      @textbooks = @subject.textbook.all
+      render template: 'textbooks/result'
+    end
+
     def textbook_new 
       @subject = Subject.find_by(id: params[:id])
       @subject.textbook.new
@@ -61,7 +73,7 @@ class SubjectsController < ApplicationController
 
     def textbook_edit
       @subject = Subject.find_by(id: params[:id])
-      @subject.textbook.find_by(id: params[:subject_id])
+      @subject.textbook.find_by(id: params[:subject_id]) 
       render template: 'textbooks/edit'
     end
 

@@ -1,0 +1,5 @@
+<ol>
+<% @textbook_results.each do |result|%>
+        <li> Title: <%= link_to "#{result.title}", textbook_path(result) %>
+<% end %>
+</ol>

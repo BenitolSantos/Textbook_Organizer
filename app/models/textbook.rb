@@ -5,5 +5,5 @@ class Textbook < ActiveRecord::Base
   scope :inexpensive, -> { where("cost <= 100") }
   scope :expensive, -> { where("cost > 100") }
 
-  #fix the scope method it doesn't work.
+
 end

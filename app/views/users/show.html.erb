@@ -19,10 +19,9 @@ Email: <%= @user.email %>
 <ol>
 </li>
 <% @user.subjects.each do |subject| %>
-    Title: <%= subject.name %>
+    <h2><%= subject.name %> </h2>
     <%=link_to "#{subject.name}", subject_path(subject) %>
         <% subject.textbooks.each do |textbook| %>
-        Title: <%= textbook.title %>
         <ol>
         <li>
         <%=link_to "#{textbook.title}", subject_path(subject) %>

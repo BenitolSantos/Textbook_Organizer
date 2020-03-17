@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     #post '/subjects/:id', to: 'textbooks#create'
     resources :textbooks
       post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
+      post '/textbooks/index', to: 'textbooks#result', as: :textbook_result #this was needed because textbooks is linked to subject
       get 'subjects/:id/textbooks', to: 'subjects#textbooks_index'
       get 'subjects/:id/textbooks/:id', to: 'subjects#textbook'
       get 'subjects/:id/textbooks/new', to: 'subjects#textbook_new'
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
 
   resources :textbooks
       post '/textbooks/new', to: 'textbooks#create', as: :create_textbook
-    
+      post '/textbooks/index', to: 'textbooks#result', as: :textbook_result #this was needed because textbooks is linked to subject
       #get '/textbooks/new', to: 'textbooks#new'
       #post '/textbooks/new', to: 'textbooks#create', as: 'create_textbook'
      get '/textbooks/:id/edit', to: 'textbooks#edit'#, as: :edit_textbook
