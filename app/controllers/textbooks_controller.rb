@@ -70,11 +70,13 @@ class TextbooksController < ApplicationController
         @user = User.find_by(id: session[:user_id])
         @inexpensive_textbook = Textbook.inexpensive
         @expensive_textbook = Textbook.expensive
-        #if Textbook.expensive.include(@textbook)
 
-        #elsif Textbook.expensive.include(@textbook)
 
-        #end
+        if Textbook.expensive.include(@textbook)
+         flash[:message] = "THIS TEXTBOOK IS CHEAP"
+        elsif Textbook.expensive.include(@textbook)
+         flash[:message] = "THIS TEXTBOOK IS EXPENSIVE"
+        end
         #nested form renders current page views useless.
         #also more DRY and simple.
         #no conditionals for seperate current_page views
